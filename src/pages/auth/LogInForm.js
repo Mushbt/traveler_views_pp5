@@ -25,7 +25,7 @@ function LogInForm() {
 
     /* 
       Handle submitted in the form data on logging in. Redirect to home page.
-  */
+    */
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

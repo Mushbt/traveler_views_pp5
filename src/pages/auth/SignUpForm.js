@@ -55,62 +55,62 @@ const SignUpForm = () => {
                         />
                     </Form.Group>
                     <Form onSubmit={handleSubmit}>
-                    {errors.username?.map((message, idx) => (
-                        <Alert variant="warning" className={styles.Alert} key={idx}>
-                            {message}
-                        </Alert>
-                    ))}
-                    
-                    <Form.Group controlId="password1">
-                        <Form.Label className="d-none">Password</Form.Label>
-                        <Form.Control
-                            className={styles.Input}
-                            type="password"
-                            placeholder="Password"
-                            name="password1"
-                            value={password1}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                    {errors.password1?.map((message, idx) => (
-                        <Alert variant="warning" className={styles.Alert} key={idx}>
-                            {message}
-                        </Alert>
-                    ))}
-                    <Form.Group controlId="password2">
-                        <Form.Label className="d-none">Confirm password</Form.Label>
-                        <Form.Control
-                            className={styles.Input}
-                            type="password"
-                            placeholder="Confirm password"
-                            name="password2"
-                            value={password2}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                    {errors.password2?.map((message, idx) => (
-                        <Alert key={idx} variant="warning" className={styles.Alert}>
-                            {message}
-                        </Alert>
-                    ))}
-        
-                    <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault()}>
-                        Sign up!
-                    </Button>
-                    {errors.non_field_errors?.map((message, idx) => (
-                        <Alert variant="warning" key={idx}>
-                            {message}
-                        </Alert>
-                    ))}
+                        {errors.username?.map((message, idx) => (
+                            <Alert variant="warning" className={styles.Alert} key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
 
-                    <Link className={styles.Link} to="/login">
-                    Already a member? Click <span>here </span>to log in.
-                    </Link>
-                </Form>
-            </Container>
-        </Col>
-    </Row>
-  );
+                        <Form.Group controlId="password1">
+                            <Form.Label className="d-none">Password</Form.Label>
+                            <Form.Control
+                                className={styles.Input}
+                                type="password"
+                                placeholder="Password"
+                                name="password1"
+                                value={password1}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+                        {errors.password1?.map((message, idx) => (
+                            <Alert variant="warning" className={styles.Alert} key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+                        <Form.Group controlId="password2">
+                            <Form.Label className="d-none">Confirm password</Form.Label>
+                            <Form.Control
+                                className={styles.Input}
+                                type="password"
+                                placeholder="Confirm password"
+                                name="password2"
+                                value={password2}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+                        {errors.password2?.map((message, idx) => (
+                            <Alert key={idx} variant="warning" className={styles.Alert}>
+                                {message}
+                            </Alert>
+                        ))}
+
+                        <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault()}>
+                            Sign up!
+                        </Button>
+                        {errors.non_field_errors?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+
+                        <Link className={styles.Link} to="/login">
+                            Already a member? Click <span>here </span>to log in.
+                        </Link>
+                    </Form>
+                </Container>
+            </Col>
+        </Row>
+    );
 };
 
 export default SignUpForm;
