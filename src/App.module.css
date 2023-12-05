@@ -20,6 +20,13 @@
     padding-top: 250px;
 }
 
+.Content {
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid var(--red);
+}
+
 a {
     color: var(--black) !important;
 }

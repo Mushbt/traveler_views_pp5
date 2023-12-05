@@ -1,0 +1,20 @@
+.Input {
+    background-color: var(--white);
+    border: 1px solid var(--red);
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: var(--black);
+    text-align: center;
+    padding: 15px;
+}
+
+.Link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+.Link span {
+    color: var(--red);
+}
