@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/SignUpForm.module.css";
+import styles from "../../styles/LogInSignUpForm.module.css";
 import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import axios from "axios";
