@@ -89,7 +89,7 @@ const SignUpForm = () => {
                         />
                     </Form.Group>
                     {errors.password2?.map((message, idx) => (
-                        <Alert key={idx} variant="warning">
+                        <Alert key={idx} variant="warning" className={styles.Alert}>
                             {message}
                         </Alert>
                     ))}
@@ -98,7 +98,7 @@ const SignUpForm = () => {
                         Sign up!
                     </Button>
                     {errors.non_field_errors?.map((message, idx) => (
-                        <Alert variant="warning" className={styles.Alert} key={idx}>
+                        <Alert variant="warning" key={idx}>
                             {message}
                         </Alert>
                     ))}
