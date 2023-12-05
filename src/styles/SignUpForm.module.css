@@ -3,17 +3,19 @@
     border: 1px solid var(--red);
     box-sizing: border-box;
     border-radius: 3px;
-    color: var(--black);
     text-align: center;
     padding: 15px;
-    box-shadow: 1px 1px 5px var(--red);
+    box-shadow: 1px 1px 3px var(--red);
+}
+
+.Input:focus {
+    box-shadow: 1px 1px 3px var(--black);
+    border: 1px solid var(--black);
+    background-color: var(--white);
 }
 
 .Link {
-    text-decoration: none;
-    text-align: center;
     display: block;
-    margin: auto;
 }
 
 .Link span {

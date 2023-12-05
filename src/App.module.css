@@ -43,3 +43,17 @@ i {
     font-size: 1.5rem;
     padding: 5px;
 }
+
+.button {
+    background-color: var(--white);
+    border-color: var(--red);
+    box-shadow: 1px 1px 3px var(--red);
+    color: var(--black);
+}
+
+.button:hover, .button:focus {
+    background-color: var(--red) !important;
+    color: var(--white) !important;
+    box-shadow: 1px 1px 3px var(--black) !important;
+    border-color: var(--black);
+}

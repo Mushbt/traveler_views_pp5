@@ -6,10 +6,10 @@ import appStyles from "../../App.module.css";
 
 const SignUpForm = () => {
   return (
-    <Row>
+    <Row className="text-center">
         <Col className="my-auto offset-md-2" md={8}>
             <Container className={`${appStyles.Content} p-4 `}>
-                <h1>Sign up</h1>
+                <h1 className="mb-4">Sign up</h1>
                     <Form>
                         <Form.Group controlId="username">
                             <Form.Label className="d-none">Username</Form.Label>
@@ -23,9 +23,9 @@ const SignUpForm = () => {
                             <Form.Label className="d-none">Confirm password</Form.Label>
                             <Form.Control className={styles.Input} type="password" placeholder="Confirm password" name="password2"/>
                         </Form.Group>
-                        <button type="submit">
+                        <Button className={`my-3 ${appStyles.button}`}>
                             Sign Up!
-                        </button>
+                        </Button>
                     </Form>
             </Container>
             <Container className={`mt-3 ${appStyles.Content}`}>
