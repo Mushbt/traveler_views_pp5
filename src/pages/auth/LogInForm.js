@@ -65,7 +65,7 @@ function LogInForm() {
                 />
               </Form.Group>
   
-              <Button className={`my-3 ${appStyles.button}`} type="submit">
+              <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault}>
                 Log in!
               </Button>
   
