@@ -1,0 +1,13 @@
+:root {
+    --black: #000000;
+    --white: #e7e7e7;
+    --red: #800020;
+  }
+
+.App {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    color: var(--black);
+    background-color: var(--white);
+    min-height: 100vh;
+}
