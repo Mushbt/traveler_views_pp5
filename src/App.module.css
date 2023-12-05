@@ -11,3 +11,23 @@
     background-color: var(--white);
     min-height: 100vh;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--black) !important;
+}
+
+a:hover i {
+    color: var(--red);
+    transition: color ease-in-out 0.3s;
+      transform: rotate(-10deg) scale(1.1);
+  }
+
+i {
+    color: var(--black);
+    font-size: 1.5rem;
+    padding: 5px;
+}
