@@ -1,82 +1,98 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/LogInSignUpForm.module.css";
+import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
 import appStyles from "../../App.module.css";
-import { Form, Button, Col, Row, Container } from "react-bootstrap";
 import axios from "axios";
 
 function LogInForm() {
     const [logInData, setLogInData] = useState({
-      username: "",
-      password: "",
+        username: "",
+        password: "",
     });
-  
     const { username, password } = logInData;
-  
+
+    const [errors, setErrors] = useState({});
+
     const history = useHistory();
-  
+
     const handleChange = (e) => {
-      setLogInData({
-        ...logInData,
-        [e.target.name]: e.target.value,
-      });
+        setLogInData({
+            ...logInData,
+            [e.target.name]: e.target.value,
+        });
     };
-  
+
     /* 
       Handle submitted in the form data on logging in. Redirect to home page.
   */
     const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        await axios.post("/dj-rest-auth/login/", logInData);
-        history.push("/")
-      } catch (err) {
-      }
+        e.preventDefault();
+        try {
+            await axios.post("/dj-rest-auth/login/", logInData);
+            history.push("/");
+        } catch (err) {
+            setErrors(err.response?.data);
+        }
     };
 
     return (
-      <Row className="text-center">
-        <Col className="my-auto offset-md-2" md={8}>
-          <Container className={`${appStyles.Content} p-4 `}>
-            <h1 className="mb-4">Log in</h1>
-  
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="username">
-                <Form.Label className="d-none">Username</Form.Label>
-                <Form.Control
-                  className={styles.Input}
-                  type="text"
-                  placeholder="Your username"
-                  name="username"
-                  value={username}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-  
-              <Form.Group controlId="password">
-                <Form.Label className="d-none">Password</Form.Label>
-                <Form.Control
-                  className={styles.Input}
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={password}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-  
-              <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault}>
-                Log in!
-              </Button>
-  
-              <Link className={styles.Link} to="/signup">
-                Don't have an account? Click <span>here </span>to sign up.
-              </Link>
-            </Form>
-          </Container>
-        </Col>
-      </Row>
+        <Row className="text-center">
+            <Col className="my-auto offset-md-2" md={8}>
+                <Container className={`${appStyles.Content} p-4 `}>
+                    <h1 className="mb-4">Log in</h1>
+
+                    <Form.Group controlId="username">
+                        <Form.Label className="d-none">Username</Form.Label>
+                        <Form.Control
+                            className={styles.Input}
+                            type="text"
+                            placeholder="Your username"
+                            name="username"
+                            value={username}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
+                    <Form onSubmit={handleSubmit}>
+                        {errors.username?.map((message, idx) => (
+                            <Alert variant="warning" className={styles.Alert} key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+                        <Form.Group controlId="password">
+                            <Form.Label className="d-none">Password</Form.Label>
+                            <Form.Control
+                                className={styles.Input}
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                value={password}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
+                        {errors.password?.map((message, idx) => (
+                            <Alert variant="warning" className={styles.Alert} key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+
+                        <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault()}>
+                            Log in!
+                        </Button>
+                        {errors.non_field_errors?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+
+                        <Link className={styles.Link} to="/signup">
+                            Don't have an account? Click <span>here </span>to sign up.
+                        </Link>
+                    </Form>
+                </Container>
+            </Col>
+        </Row>
     );
-  };
-  
-  export default LogInForm;
+};
+
+export default LogInForm;

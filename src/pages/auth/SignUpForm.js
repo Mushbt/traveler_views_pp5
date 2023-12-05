@@ -94,7 +94,7 @@ const SignUpForm = () => {
                         </Alert>
                     ))}
         
-                    <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault}>
+                    <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault()}>
                         Sign up!
                     </Button>
                     {errors.non_field_errors?.map((message, idx) => (
@@ -105,7 +105,7 @@ const SignUpForm = () => {
 
                     <Link className={styles.Link} to="/login">
                     Already a member? Click <span>here </span>to log in.
-                </Link>
+                    </Link>
                 </Form>
             </Container>
         </Col>
