@@ -25,6 +25,7 @@
     padding: 10px;
     border-radius: 3px;
     border: 1px solid var(--red);
+    box-shadow: 1px 1px 5px var(--red);
 }
 
 a {
