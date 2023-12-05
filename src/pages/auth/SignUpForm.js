@@ -36,18 +36,13 @@ const SignUpForm = () => {
             setErrors(err.response?.data);
         }
     };
+
     return (
         <Row className="text-center">
             <Col className="my-auto offset-md-2" md={8}>
                 <Container className={`${appStyles.Content} p-4 `}>
                     <h1 className="mb-4">Sign up</h1>
 
-                    <Form onSubmit={handleSubmit}>
-                    {errors.username?.map((message, idx) => (
-                        <Alert variant="warning" className={styles.Alert} key={idx}>
-                            {message}
-                        </Alert>
-                    ))}
                     <Form.Group controlId="username">
                         <Form.Label className="d-none">Username</Form.Label>
                         <Form.Control
@@ -59,12 +54,13 @@ const SignUpForm = () => {
                             onChange={handleChange}
                         />
                     </Form.Group>
-
-                    {errors.password1?.map((message, idx) => (
+                    <Form onSubmit={handleSubmit}>
+                    {errors.username?.map((message, idx) => (
                         <Alert variant="warning" className={styles.Alert} key={idx}>
                             {message}
                         </Alert>
                     ))}
+                    
                     <Form.Group controlId="password1">
                         <Form.Label className="d-none">Password</Form.Label>
                         <Form.Control
@@ -76,6 +72,11 @@ const SignUpForm = () => {
                             onChange={handleChange}
                         />
                     </Form.Group>
+                    {errors.password1?.map((message, idx) => (
+                        <Alert variant="warning" className={styles.Alert} key={idx}>
+                            {message}
+                        </Alert>
+                    ))}
                     <Form.Group controlId="password2">
                         <Form.Label className="d-none">Confirm password</Form.Label>
                         <Form.Control
@@ -87,15 +88,20 @@ const SignUpForm = () => {
                             onChange={handleChange}
                         />
                     </Form.Group>
-
+                    {errors.password2?.map((message, idx) => (
+                        <Alert key={idx} variant="warning">
+                            {message}
+                        </Alert>
+                    ))}
+        
+                    <Button className={`my-3 ${appStyles.button}`} type="submit">
+                        Sign up!
+                    </Button>
                     {errors.non_field_errors?.map((message, idx) => (
                         <Alert variant="warning" className={styles.Alert} key={idx}>
                             {message}
                         </Alert>
                     ))}
-                    <Button className={`my-3 ${appStyles.button}`} type="submit">
-                        Sign up!
-                    </Button>
 
                     <Link className={styles.Link} to="/login">
                     Already a member? Click <span>here </span>to log in.
