@@ -8,6 +8,10 @@
     box-shadow: 1px 1px 3px var(--red);
 }
 
+.Input::placeholder {
+    color: var(--black);
+}
+
 .Input:focus {
     box-shadow: 1px 1px 3px var(--black);
     border: 1px solid var(--black);
