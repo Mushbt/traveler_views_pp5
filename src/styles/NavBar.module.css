@@ -1,3 +1,12 @@
 .NavBar {
     box-shadow: 1px 1px 5px var(--red);
 }
+
+.NavLink {
+    padding: 5px;
+}
+
+.Active i {
+    transform: rotate(-10deg) scale(1.1);
+    color: var(--red);
+}

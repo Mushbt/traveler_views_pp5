@@ -16,6 +16,10 @@
     box-sizing: border-box;
 }
 
+.Body {
+    padding-top: 250px;
+}
+
 a {
     color: var(--black) !important;
 }
