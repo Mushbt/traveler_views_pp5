@@ -49,7 +49,7 @@ const SignUpForm = () => {
                         </Form.Text>
                         <Form.Label className="d-none">Username</Form.Label>
                         <Form.Control
-                            className={styles.Input}
+                            className={appStyles.Input}
                             type="text"
                             placeholder="Your username"
                             name="username"
@@ -60,7 +60,7 @@ const SignUpForm = () => {
                     </Form.Group>
                     <Form onSubmit={handleSubmit}>
                         {errors.username?.map((message, idx) => (
-                            <Alert variant="warning" className={styles.Alert} key={idx}>
+                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
                             </Alert>
                         ))}
@@ -71,7 +71,7 @@ const SignUpForm = () => {
                             </Form.Text>
                             <Form.Label className="d-none">Password</Form.Label>
                             <Form.Control
-                                className={styles.Input}
+                                className={appStyles.Input}
                                 type="password"
                                 placeholder="Password"
                                 name="password1"
@@ -81,14 +81,14 @@ const SignUpForm = () => {
                             />
                         </Form.Group>
                         {errors.password1?.map((message, idx) => (
-                            <Alert variant="warning" className={styles.Alert} key={idx}>
+                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
                             </Alert>
                         ))}
                         <Form.Group controlId="password2">
                             <Form.Label className="d-none">Confirm password</Form.Label>
                             <Form.Control
-                                className={styles.Input}
+                                className={appStyles.Input}
                                 type="password"
                                 placeholder="Confirm password"
                                 name="password2"
@@ -97,7 +97,7 @@ const SignUpForm = () => {
                             />
                         </Form.Group>
                         {errors.password2?.map((message, idx) => (
-                            <Alert key={idx} variant="warning" className={styles.Alert}>
+                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
                             </Alert>
                         ))}
@@ -106,7 +106,7 @@ const SignUpForm = () => {
                             Sign up!
                         </Button>
                         {errors.non_field_errors?.map((message, idx) => (
-                            <Alert variant="warning" key={idx}>
+                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
                             </Alert>
                         ))}

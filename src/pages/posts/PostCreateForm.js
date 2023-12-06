@@ -3,19 +3,18 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Upload from "../../assets/upload_image.png"
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import inputStyles from "../../styles/LogInSignUpForm.module.css";
 
 function PostCreateForm() {
     const textFields = (
         <div className="text-center">
             <Form.Group>
                 <Form.Label>Title</Form.Label>
-                <Form.Control type="text" name="title" className={inputStyles.Input} />
+                <Form.Control type="text" name="title" className={appStyles.Input} />
             </Form.Group>
 
             <Form.Group>
                 <Form.Label>Country</Form.Label>
-                <Form.Control as="select">
+                <Form.Control as="select" name="country" className={appStyles.Input}>
                     <option>Select Country</option>
                     <option value="AF">Afghanistan</option>
                     <option value="AL">Albania</option>
@@ -267,7 +266,7 @@ function PostCreateForm() {
                     as="textarea"
                     rows={8}
                     name="description"
-                    className={inputStyles.Input}
+                    className={appStyles.Input}
                 />
             </Form.Group>
 
