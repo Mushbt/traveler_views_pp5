@@ -44,12 +44,16 @@ const SignUpForm = () => {
                     <h1 className="mb-4">Sign up</h1>
 
                     <Form.Group controlId="username">
+                        <Form.Text id="passwordHelpBlock" muted>
+                            Your username must be inbetween 1-10 characters.
+                        </Form.Text>
                         <Form.Label className="d-none">Username</Form.Label>
                         <Form.Control
                             className={styles.Input}
                             type="text"
                             placeholder="Your username"
                             name="username"
+                            maxLength="10"
                             value={username}
                             onChange={handleChange}
                         />
@@ -62,12 +66,16 @@ const SignUpForm = () => {
                         ))}
 
                         <Form.Group controlId="password1">
+                            <Form.Text id="passwordHelpBlock" muted>
+                                Your password must be a minimum of 8 characters.
+                            </Form.Text>
                             <Form.Label className="d-none">Password</Form.Label>
                             <Form.Control
                                 className={styles.Input}
                                 type="password"
                                 placeholder="Password"
                                 name="password1"
+                                minLength="8"
                                 value={password1}
                                 onChange={handleChange}
                             />
