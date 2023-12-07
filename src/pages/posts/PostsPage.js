@@ -22,7 +22,7 @@ function PostsPage() {
           <Container
             className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}
           >
-            Post category
+            Popular countries
           </Container>
         </Col>
 
