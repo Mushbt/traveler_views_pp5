@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Upload from "../../assets/upload_image.png"
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
+import Asset from "../../components/Asset";
 
 function PostCreateForm() {
     const textFields = (
