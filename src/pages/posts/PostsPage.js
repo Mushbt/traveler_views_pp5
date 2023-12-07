@@ -4,6 +4,7 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import Post from "./Post";
 import Asset from "../../components/Asset";
+import NoResultsImage from "../../assets/no_results.png"
 import SecondaryNavBar from "../../components/SecondaryNavBar";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
