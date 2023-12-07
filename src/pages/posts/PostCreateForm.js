@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Button, Col, Container, Form, Row, Image } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form, Image, Row } from "react-bootstrap";
 import Upload from "../../assets/upload_image.png"
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -66,11 +66,21 @@ function PostCreateForm() {
         <div className="text-center">
             <Form.Group>
                 <Form.Label>Title</Form.Label>
+                {errors.title?.map((message, idx) => (
+                    <Alert variant="warning" className={appStyles.Alert} key={idx}>
+                        {message}
+                    </Alert>
+                ))}
                 <Form.Control type="text" name="title" className={appStyles.Input} value={title} onChange={handleChange} />
             </Form.Group>
 
             <Form.Group>
                 <Form.Label>Country</Form.Label>
+                {errors.country?.map((message, idx) => (
+                    <Alert variant="warning" className={appStyles.Alert} key={idx}>
+                        {message}
+                    </Alert>
+                ))}
                 <Form.Control as="select" name="country" className={appStyles.Input} value={country} onChange={handleChange}>
                     <option>Select Country</option>
                     <option value="AF">Afghanistan</option>
@@ -384,6 +394,11 @@ function PostCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {errors.image?.map((message, idx) => (
+                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
 
                         <div className="d-md-none">{textFields}</div>
                     </Container>
