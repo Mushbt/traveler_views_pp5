@@ -296,7 +296,7 @@ function PostCreateForm() {
                                 className="d-flex justify-content-center"
                                 htmlFor="image-upload"
                             >
-                                <img src={Upload} alt="" />
+                                <Asset src={Upload} alt="" />
                             </Form.Label>
                         </Form.Group>
 
