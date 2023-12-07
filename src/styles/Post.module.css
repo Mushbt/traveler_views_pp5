@@ -1,0 +1,6 @@
+.Post {
+    background-color: var(--red);
+    border-radius: 3px;
+    margin-bottom: 15px;
+    text-align: center;
+}
