@@ -46,7 +46,7 @@ function App() {
               />
             )}
           />
-          <Route exact path="/signin" render={() => <LogInForm />} />
+          <Route exact path="/login" render={() => <LogInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
