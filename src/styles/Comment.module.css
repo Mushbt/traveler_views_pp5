@@ -1,0 +1,16 @@
+.CommentBox {
+    color: var(--black);
+    padding: 5px 10px 5px 20px;
+    border: 1px solid var(--red);
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.OwnerName {
+    color: var(--black);
+    margin-right: 6px;
+}
+
+.Date {
+    color: var(--black);
+}
