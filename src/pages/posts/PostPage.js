@@ -21,7 +21,7 @@ function PostPage() {
             try {
                 const [{ data: post }, { data: comments }] = await Promise.all([
                     axiosReq.get(`/posts/${id}`),
-                    axiosReq.get(`/comments/?post=${id}`)
+                    axiosReq.get(`/comments/?post=${id}`),
                 ]);
                 setPost({ results: [post] });
                 console.log(comments);
@@ -60,7 +60,7 @@ function PostPage() {
                         ) : null}
                         {comments.results.length ? (
                             comments.results.map((comment) => (
-                                <Comment key={comment.id} {...comment} />
+                                <Comment key={comment.id} {...comment} setPost={setPost} setComments={setComments} />
                             ))
                         ) : currentUser ? (
                             <span>Be the first one to comment!</span>
