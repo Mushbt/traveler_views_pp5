@@ -31,16 +31,16 @@ const Post = (props) => {
 
     const handleEdit = () => {
         history.push(`/posts/${id}/edit`);
-      };
-    
-      const handleDelete = async () => {
+    };
+
+    const handleDelete = async () => {
         try {
-          await axiosRes.delete(`/posts/${id}/`);
-          history.goBack();
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack();
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
-      };
+    };
 
     const handleLike = async () => {
         try {
@@ -96,7 +96,7 @@ const Post = (props) => {
                 {description && <Card.Text>{description}</Card.Text>}
                 {country && <Card.Text>{country}</Card.Text>}
                 <hr className={styles.Line} />
-                <div>
+                <div className={styles.PostBar}>
                     {is_owner ? (
                         <OverlayTrigger
                             placement="top"
@@ -113,7 +113,10 @@ const Post = (props) => {
                             <i className="far fa-heart" />
                         </span>
                     ) : (
-                        <OverlayTrigger>
+                        <OverlayTrigger
+                            placement="top"
+                            overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                        >
                             <i className="far fa-heart" />
                         </OverlayTrigger>
                     )}
