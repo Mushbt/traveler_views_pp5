@@ -4,17 +4,20 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom';
 import Avatar from '../../components/Avatar';
 import { Button } from 'react-bootstrap';
+import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
 const Profile = (props) => {
-    const { profile, imageSize = 40 } = props;
-    const { id, following_id, image, owner } = profile;
-  
-    const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner;
+  const { profile, imageSize = 40 } = props;
+  const { id, following_id, image, owner } = profile;
 
-    return (
-        <div className={`my-3 d-flex align-items-center`}>
-             <div>
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
+
+  const { handleFollow } = useSetProfileData();
+
+  return (
+    <div className={`my-3 d-flex align-items-center`}>
+      <div>
         <Link to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
         </Link>
@@ -29,11 +32,11 @@ const Profile = (props) => {
         {currentUser &&
           !is_owner &&
           (following_id ? (
-            <Button className={`${styles.button}`} onClick={() => {}}>
+            <Button className={`${styles.button}`} onClick={() => handleFollow(profile)}>
               Follow
             </Button>
           ) : (
-            <Button className={`${styles.button}`} onClick={() => {}}>
+            <Button className={`${styles.button}`} onClick={() => { }}>
               Unfollow
             </Button>
           ))}
