@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/ProfilePage.module.css";
@@ -17,6 +17,7 @@ function ProfilePage() {
     const setProfileData = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
+    const is_owner = currentUser?.username === profile?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -63,10 +64,20 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
-                <Col lg={3} className="text-lg-right">
-                    <p>Follow button</p>
+                <Col lg={3} className="text-lg-right mt-md-3 mt-sm-1">
+                    {currentUser &&
+                        !is_owner &&
+                        (profile?.following_id ? (
+                            <Button className={`${styles.button}`} onClick={() => {}}>
+                                unfollow
+                            </Button>
+                        ) : (
+                            <Button className={`${styles.button}`} onClick={() => {}}>
+                                follow
+                            </Button>
+                        ))}
                 </Col>
-                <Col className="p-3">Profile description</Col>
+                { profile?.content && <Col className="p-3">{profile?.description}</Col>}
             </Row>
         </>
     );
@@ -74,7 +85,7 @@ function ProfilePage() {
     const mainProfilePosts = (
         <>
             <hr />
-            <p className="text-center">Profile owner's posts</p>
+            <p className="text-center">{profile?.owner}'s posts</p>
             <hr />
         </>
     );
