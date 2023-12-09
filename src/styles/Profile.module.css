@@ -1,0 +1,14 @@
+.button {
+    border-radius: 5px;
+    border-color: var(--red);
+    background-color: var(--white);
+    color: var(--black);
+    box-shadow: 1px 1px 5px var(--red);
+  }
+
+  .button:hover, .button:focus, .button:active {
+    background-color: var(--red) !important;
+    color: var(--white) !important;
+    box-shadow: 1px 1px 3px var(--black) !important;
+    border-color: var(--black);
+}
