@@ -18,7 +18,7 @@ const PopularProfiles = () => {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(
-                    "/profiles/?ordering=-followers_count"
+                    "/profiles/?ordering=-followers_number"
                 );
                 setProfileData((prevState) => ({
                     ...prevState,
