@@ -13,7 +13,7 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const { handleFollow } = useSetProfileData();
+  const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
     <div className={`my-3 d-flex align-items-center`}>
@@ -36,7 +36,7 @@ const Profile = (props) => {
               Follow
             </Button>
           ) : (
-            <Button className={`${styles.button}`} onClick={() => { }}>
+            <Button className={`${styles.button}`} onClick={() => handleUnfollow(profile)}>
               Unfollow
             </Button>
           ))}
