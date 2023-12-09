@@ -4,8 +4,10 @@ import styles from "../../styles/LogInSignUpForm.module.css";
 import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+    useRedirect("loggedIn");
     const [signUpData, setSignUpData] = useState({
         username: "",
         password1: "",
