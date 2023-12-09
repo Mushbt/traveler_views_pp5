@@ -50,12 +50,14 @@ function CommentEditForm(props) {
 
                 <Button className={appStyles.button}
                     disabled={!content.trim()}
+                    onMouseDown={(e) => e.preventDefault()}
                     type="submit"
                 >
                     Add
                 </Button>
                 <Button className={appStyles.button}
                     onClick={() => setShowEditForm(false)}
+                    onMouseDown={(e) => e.preventDefault()}
                     type="button"
                 >
                     Cancel

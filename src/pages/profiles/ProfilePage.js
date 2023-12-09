@@ -76,11 +76,11 @@ function ProfilePage() {
                     {currentUser &&
                         !is_owner &&
                         (profile?.following_id ? (
-                            <Button className={`${styles.button}`} onClick={() => handleUnfollow(profile)}>
+                            <Button className={`${styles.button}`} onMouseDown={(e) => e.preventDefault()} onClick={() => handleUnfollow(profile)}>
                                 unfollow
                             </Button>
                         ) : (
-                            <Button className={`${styles.button}`} onClick={() => handleFollow(profile)}>
+                            <Button className={`${styles.button}`} onMouseDown={(e) => encodeURIComponent.preventDefault()} onClick={() => handleFollow(profile)}>
                                 follow
                             </Button>
                         ))}

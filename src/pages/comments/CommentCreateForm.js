@@ -62,6 +62,7 @@ function CommentCreateForm(props) {
 
       <Button 
         className={appStyles.button}
+        onMouseDown={(e) => e.preventDefault()}
         type="submit"
       >
         Add

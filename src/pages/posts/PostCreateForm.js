@@ -339,11 +339,11 @@ function PostCreateForm() {
                 />
             </Form.Group>
 
-            <Button className={appStyles.button} type="submit">
+            <Button className={appStyles.button} onMouseDown={(e) => e.preventDefault()} type="submit">
                 Create
             </Button>
 
-            <Button className={`${appStyles.button} mx-3`} onClick={() => history.goBack()}>
+            <Button className={`${appStyles.button} mx-3`} onMouseDown={(e) => e.preventDefault()} onClick={() => history.goBack()}>
                 Cancel
             </Button>
         </div>
