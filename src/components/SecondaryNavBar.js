@@ -7,13 +7,13 @@ import styles from "../styles/SecondaryNavBar.module.css";
 const SecondaryNavBar = () => {
     return (
         <Container
-        className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3 ${styles.FlexDisplay}`}
+            className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3 ${styles.FlexDisplay}`}
         >
-    <Link to="/posts/create"><i class="fa-regular fa-plus fa-fw"></i><p className={styles.Link}>Add post</p></Link>
-    <Link to="/liked"><i class="fa-regular fa-heart fa-fw"></i><p className={styles.Link}>Liked posts</p></Link>
-    <Link to="/feed"><i class="fa-solid fa-rss fa-fw"></i><p className={styles.Link}>Feed</p></Link>
+            <Link to="/posts/create"><i class="fa-regular fa-plus fa-fw"></i><p className={styles.Link}>Add post</p></Link>
+            <Link to="/liked"><i class="fa-regular fa-heart fa-fw"></i><p className={styles.Link}>Liked posts</p></Link>
+            <Link to="/feed"><i class="fa-solid fa-rss fa-fw"></i><p className={styles.Link}>Feed</p></Link>
         </Container>
-    )
-}
+    );
+};
 
 export default SecondaryNavBar;
