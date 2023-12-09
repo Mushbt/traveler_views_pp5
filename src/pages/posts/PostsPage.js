@@ -61,7 +61,7 @@ function PostsPage({ message, filter = "" }) {
           <Container
             className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}
           >
-            <p className=" font-weight-bold ml-2">Popular countries</p>
+            <p>Popular Countries</p>
             <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry(null)}>All</Badge>
             <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("US")}>United States</Badge>
             <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("GB")}>United Kingdom</Badge>
