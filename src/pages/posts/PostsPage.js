@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Badge, Col, Container, Form, Row } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import Post from "./Post";
@@ -11,22 +11,27 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
+  const [country, setCountry] = useState(null);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const currentUser = useCurrentUser();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+        const { data } = await axiosReq.get(
+          `/posts/?${filter}search=${query}${country !== null ? `&country=${country}` : ""
+          }`
+        );
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 
@@ -38,7 +43,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser, country]);
 
   return (
     <Container>
@@ -56,7 +61,28 @@ function PostsPage({ message, filter = "" }) {
           <Container
             className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}
           >
-            Popular countries
+            <p className=" font-weight-bold ml-2">Popular countries</p>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry(null)}>All</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("US")}>United States</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("GB")}>United Kingdom</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("CN")}>China</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("DE")}>Germany</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("ES")}>Spain</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("FR")}>France</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("IT")}>Italy</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("RU")}>Russian Federation</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("GR")}>Greece</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("MX")}>Mexico</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("TH")}>Thailand</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("PT")}>Portugal</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("IN")}>Austria</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("DK")}>Denmark</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("SA")}>Saudi Arabia</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("ZA")}>South Africa</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("HU")}>Hungary</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("IS")}>Iceland</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("LK")}>Sri Lanka</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("other")}>Other</Badge>
           </Container>
         </Col>
 
