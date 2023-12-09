@@ -82,7 +82,7 @@ function ProfilePage() {
                                 unfollow
                             </Button>
                         ) : (
-                            <Button className={`${styles.button}`} onMouseDown={(e) => encodeURIComponent.preventDefault()} onClick={() => handleFollow(profile)}>
+                            <Button className={`${styles.button}`} onMouseDown={(e) => e.preventDefault()} onClick={() => handleFollow(profile)}>
                                 follow
                             </Button>
                         ))}
