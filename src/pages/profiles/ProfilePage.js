@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import Asset from "../../components/Asset";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/ProfilePage.module.css";
 import PopularProfiles from "./PopularProfiles";
 import SecondaryNavBar from "../../components/SecondaryNavBar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams();
     const setProfileData = useSetProfileData();
+    const { pageProfile } = useProfileData();
+    const [profile] = pageProfile.results;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,11 +40,28 @@ function ProfilePage() {
         <>
             <Row noGutters className="px-3 text-center">
                 <Col lg={3} className="text-lg-left">
-                    <p>Image</p>
+                    <Image
+                        className={styles.ProfileImage}
+                        roundedCircle
+                        src={profile?.image}
+                    />
                 </Col>
                 <Col lg={6}>
-                    <h3 className="m-2">Username</h3>
-                    <p>Number of followers, people following & posts</p>
+                    <h3 className="m-3">{profile?.owner}</h3>
+                    <Row className="justify-content-center">
+                        <Col xs={3} className="my-3">
+                            <div>Followers</div>
+                            <div>{profile?.followers_number}</div>
+                        </Col>
+                        <Col xs={3} className="my-3">
+                            <div>Following</div>
+                            <div>{profile?.following_number}</div>
+                        </Col>
+                        <Col xs={3} className="my-3">
+                            <div>Posts</div>
+                            <div>{profile?.posts_number}</div>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col lg={3} className="text-lg-right">
                     <p>Follow button</p>
