@@ -26,3 +26,13 @@
 .SearchIcon:hover {
     color: var(--red);
 }
+
+.Badge {
+    background-color: var(--red);
+    color: var(--white);
+    margin: 0 0 10px 5px;
+}
+
+.Badge:hover {
+    cursor: pointer;
+  }
