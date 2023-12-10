@@ -10,6 +10,7 @@
     background-color: var(--main);
     color: var(--text);
     box-shadow: 1px 1px 5px var(--details);
+    border: none !important;
   }
 
   .button:hover, .button:focus, .button:active {
