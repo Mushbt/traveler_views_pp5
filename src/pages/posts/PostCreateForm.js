@@ -352,18 +352,18 @@ function PostCreateForm() {
     return (
         <Form onSubmit={handleSubmit}>
             <Row>
-                <Col md={7} lg={8} className="d-none d-md-block p-0 p-md-2">
+                <Col md={6} lg={6} className="d-none d-md-block p-0 p-md-2">
                     <Container className={appStyles.Content}>{textFields}</Container>
                 </Col>
-                <Col className="py-2 p-0 p-md-2" md={5} lg={4}>
+                <Col className="py-2 p-0 p-md-2" md={6} lg={6}>
                     <Container
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
                             {image ? (
                                 <>
-                                    <figure>
-                                        <Image className={appStyles.Image} src={image} />
+                                    <figure >
+                                        <Image className={`${appStyles.Image} img-fluid`} src={image} />
                                     </figure>
                                     <div>
                                         <Form.Label
