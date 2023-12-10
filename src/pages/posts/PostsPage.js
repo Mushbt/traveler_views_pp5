@@ -52,10 +52,11 @@ function PostsPage({ message, filter = "" }) {
 
           <SecondaryNavBar />
 
+          <PopularProfiles />
+
           <Container
-            className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}
+            className={`${appStyles.CollapsedColumn} mb-3`}
           >
-            <PopularProfiles />
           </Container>
 
           <Container
