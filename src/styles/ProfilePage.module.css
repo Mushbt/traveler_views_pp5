@@ -7,15 +7,15 @@
 
   .button {
     border-radius: 5px;
-    border-color: var(--red);
+    border-color: var(--details);
     background-color: var(--white);
-    color: var(--black);
-    box-shadow: 1px 1px 5px var(--red);
+    color: var(--text);
+    box-shadow: 1px 1px 5px var(--details);
   }
 
   .button:hover, .button:focus, .button:active {
-    background-color: var(--red) !important;
+    background-color: var(--details) !important;
     color: var(--white) !important;
-    box-shadow: 1px 1px 3px var(--black) !important;
-    border-color: var(--black);
+    box-shadow: 1px 1px 3px var(--text) !important;
+    border-color: var(--text);
 }

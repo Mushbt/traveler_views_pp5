@@ -4,10 +4,10 @@
     border-radius: 5px;
     border-top-left-radius: 5px !important;
     border-bottom-left-radius: 5px !important;
-    border-color: var(--red);
+    border-color: var(--details);
 }
 
 .Form:focus {
     box-shadow: none;
-    border: 2px solid var(--red);
+    border: 2px solid var(--details);
   }

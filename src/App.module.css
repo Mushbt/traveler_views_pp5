@@ -1,14 +1,14 @@
 :root {
-    --black: #000000;
-    --white: #e7e7e7;
-    --red: #800020;
+    --text: #333333;
+    --main: #008080;
+    --details: #FFD700;
   }
 
 .App {
     font-family: 'Source Code Pro', monospace;
     font-weight: 600;
-    color: var(--black);
-    background-color: var(--white);
+    color: var(--text);
+    background-color: var(--main);
     min-height: 100vh;
 }
 
@@ -21,67 +21,68 @@
 }
 
 .Content {
-    background-color: var(--white);
+    background-color: var(--details);
+    color: var(--text);
     padding: 10px;
     border-radius: 3px;
-    border: 1px solid var(--red);
-    box-shadow: 1px 1px 5px var(--red);
+    border: 1px solid var(--text);
+    box-shadow: 1px 1px 5px var(--text);
 }
 
 a {
-    color: var(--black) !important;
+    color: var(--text) !important;
 }
 
 a:hover i {
-    color: var(--red);
+    color: var(--main);
     transition: color ease-in-out 0.3s;
-      transform: rotate(-10deg) scale(1.1);
+    transform: rotate(-10deg) scale(1.1);
   }
 
 i {
-    color: var(--black);
+    color: var(--text);
     font-size: 1.5rem;
     padding: 5px;
 }
 
 .button {
-    background-color: var(--white);
-    border-color: var(--red);
-    box-shadow: 1px 1px 3px var(--red);
-    color: var(--black);
+    background-color: var(--main);
+    border-color: var(--details);
+    box-shadow: 1px 1px 3px var(--details);
+    color: var(--text);
 }
 
 .button:hover, .button:focus {
-    background-color: var(--red) !important;
-    color: var(--white) !important;
-    box-shadow: 1px 1px 3px var(--black) !important;
-    border-color: var(--black);
+    background-color: var(--main) !important;
+    color: var(--main) !important;
+    box-shadow: 1px 1px 3px var(--text) !important;
+    border-color: var(--text);
 }
 
 .Input {
-    background-color: var(--white);
-    border: 1px solid var(--red);
+    background-color: var(--main);
+    border: 1px solid var(--details);
     box-sizing: border-box;
     border-radius: 3px;
     text-align: center;
     padding: 5px;
-    box-shadow: 1px 1px 3px var(--red);
+    box-shadow: 1px 1px 3px var(--details);
 }
 
 .Input::placeholder {
-    color: var(--black);
+    color: var(--text);
 }
 
 .Input:focus {
-    box-shadow: 1px 1px 3px var(--black);
-    border: 1px solid var(--black);
-    background-color: var(--white);
+    box-shadow: 1px 1px 3px var(--text);
+    border: 1px solid var(--text);
+    background-color: var(--main);
 }
 
 .Alert {
     padding: 0;
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--main);
+    color: var(--text);
     font-weight: bold;
     border: none;
     text-decoration: underline;
