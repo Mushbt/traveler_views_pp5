@@ -1,6 +1,6 @@
 .NavBar {
     box-shadow: 1px 1px 5px var(--red);
-    height: 100px;
+    min-height: 100px;
 }
 
 .NavLink {
@@ -15,9 +15,37 @@
 .LogoContainer {
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 
 .Logo {
-    height: 150px;
+    max-height: 100%;
     width: auto;
+}
+
+
+@media (max-width: 767px) {
+    .NavBar {
+        min-height: 50px;
+    }
+
+    .Logo {
+        max-height: 100px;
+    }
+
+    .LogoContainer {
+        margin-right: auto;
+    }
+
+    .navbar-toggler {
+        order: -1;
+        margin-right: 10px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .Logo {
+        max-height: 150px;
+    }
 }
