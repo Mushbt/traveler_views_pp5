@@ -10,6 +10,8 @@ import Comment from "../comments/Comment"
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import SecondaryNavBar from "../../components/SecondaryNavBar";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostPage() {
     const { id } = useParams();
@@ -41,11 +43,10 @@ function PostPage() {
         <Container>
             <Row>
                 <Col className="py-2 p-0 p-lg-2" lg={4}>
-                    <Container className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}>Like, feed, add</Container>
 
-                    <Container className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}>Popular users</Container>
+                    <SecondaryNavBar />
 
-                    <Container className={`${appStyles.Content} ${appStyles.CollapsedColumn} mb-3`}>Country</Container>
+                    <PopularProfiles />
                 </Col>
 
                 <Col className="py-2 p-0 p-lg-2" lg={8}>
