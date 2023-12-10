@@ -1,15 +1,15 @@
 .SearchBar input {
     border-radius: 3px;
-    border-color: var(--details);
+    border-color: var(--text);
     padding-left: 40px;
     margin-bottom: 10px;
-    box-shadow: 1px 1px 5px var(--details);
-    background-color: var(--white);
+    box-shadow: 1px 1px 5px var(--text);
+    background-color: var(--details);
 }
 
 .SearchBar input:focus {
     box-shadow: none;
-    border: 2px solid var(--details);
+    border: 2px solid var(--text);
 }
 
 .SearchBar input:focus::placeholder {
@@ -24,12 +24,12 @@
   }
 
 .SearchIcon:hover {
-    color: var(--details);
+    color: var(--main);
 }
 
 .Badge {
-    background-color: var(--details);
-    color: var(--white);
+    background-color: var(--main);
+    color: var(--details);
     margin: 0 0 10px 5px;
 }
 

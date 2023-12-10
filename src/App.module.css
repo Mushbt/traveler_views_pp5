@@ -54,7 +54,7 @@ i {
 
 .button:hover, .button:focus {
     background-color: var(--main) !important;
-    color: var(--main) !important;
+    color: var(--details) !important;
     box-shadow: 1px 1px 3px var(--text) !important;
     border-color: var(--text);
 }
