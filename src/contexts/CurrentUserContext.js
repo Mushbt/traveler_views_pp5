@@ -65,6 +65,7 @@ export const CurrentUserProvider = ({ children }) => {
               }
               return null;
             });
+            removeTokenTimestamp();
           }
           // if no error refreshing the token
           return axios(err.config);
