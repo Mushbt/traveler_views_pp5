@@ -1,5 +1,6 @@
 .NavBar {
     box-shadow: 1px 1px 5px var(--red);
+    height: 100px;
 }
 
 .NavLink {
@@ -9,4 +10,14 @@
 .Active i {
     transform: rotate(-10deg) scale(1.1);
     color: var(--red);
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.Logo {
+    height: 150px;
+    width: auto;
 }
