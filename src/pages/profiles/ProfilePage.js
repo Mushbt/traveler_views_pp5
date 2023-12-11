@@ -59,15 +59,15 @@ function ProfilePage() {
                 <Col lg={6}>
                     <h3 className="m-3">{profile?.owner}</h3>
                     <Row className="justify-content-center">
-                        <Col xs={3} className="my-3">
+                        <Col xs={4} className="my-3">
                             <div>Followers</div>
                             <div>{profile?.followers_number}</div>
                         </Col>
-                        <Col xs={3} className="my-3">
+                        <Col xs={4} className="my-3">
                             <div>Following</div>
                             <div>{profile?.following_number}</div>
                         </Col>
-                        <Col xs={3} className="my-3">
+                        <Col xs={4} className="my-3">
                             <div>Posts</div>
                             <div>{profile?.posts_number}</div>
                         </Col>
