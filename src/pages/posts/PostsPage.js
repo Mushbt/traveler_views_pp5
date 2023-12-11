@@ -64,26 +64,26 @@ function PostsPage({ message, filter = "" }) {
           >
             <p>Popular Countries</p>
             <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry(null)}>All</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("US")}>United States</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("GB")}>United Kingdom</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("CN")}>China</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("DE")}>Germany</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("ES")}>Spain</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("FR")}>France</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("IT")}>Italy</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("RU")}>Russian Federation</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("GR")}>Greece</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("MX")}>Mexico</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("TH")}>Thailand</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("PT")}>Portugal</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("IN")}>Austria</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("DK")}>Denmark</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("SA")}>Saudi Arabia</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("ZA")}>South Africa</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("HU")}>Hungary</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("IS")}>Iceland</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("LK")}>Sri Lanka</Badge>
-            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("other")}>Other</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("United States")}>United States</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("United Kingdom")}>United Kingdom</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("China")}>China</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Germany")}>Germany</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Spain")}>Spain</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("France")}>France</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Italy")}>Italy</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Russian Federation")}>Russian Federation</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Greece")}>Greece</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Mexico")}>Mexico</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Thailand")}>Thailand</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Portugal")}>Portugal</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Austria")}>Austria</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Denmark")}>Denmark</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Saudi Arabia")}>Saudi Arabia</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("South Africa")}>South Africa</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Hungary")}>Hungary</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Iceland")}>Iceland</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Sri Lanka")}>Sri Lanka</Badge>
+            <Badge variant="secondary" pill className={`${styles.Badge}`} onClick={() => setCountry("Other")}>Other</Badge>
           </Container>
         </Col>
 
