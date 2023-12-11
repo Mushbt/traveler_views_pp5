@@ -53,7 +53,7 @@ function CommentEditForm(props) {
                     onMouseDown={(e) => e.preventDefault()}
                     type="submit"
                 >
-                    Add
+                    Update
                 </Button>
                 <Button className={appStyles.button}
                     onClick={() => setShowEditForm(false)}
