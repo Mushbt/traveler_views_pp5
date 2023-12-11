@@ -45,6 +45,12 @@ i {
     padding: 5px;
 }
 
+i:hover {
+    color: var(--main);
+    transition: color ease-in-out 0.3s;
+    transform: rotate(-10deg) scale(1.1);
+}
+
 .button {
     background-color: var(--main);
     border-color: var(--details);
