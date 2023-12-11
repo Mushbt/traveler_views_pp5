@@ -67,16 +67,18 @@ i {
     text-align: center;
     padding: 5px;
     box-shadow: 1px 1px 3px var(--details);
+    color: white;
 }
 
 .Input::placeholder {
-    color: var(--text);
+    color: var(--details);
 }
 
 .Input:focus {
     box-shadow: 1px 1px 3px var(--text);
     border: 1px solid var(--text);
     background-color: var(--main);
+    color: white;
 }
 
 .Alert {
