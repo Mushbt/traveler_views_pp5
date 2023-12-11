@@ -49,12 +49,12 @@ i {
     background-color: var(--main);
     border-color: var(--details);
     box-shadow: 1px 1px 3px var(--details);
-    color: var(--text);
+    color: var(--details);
 }
 
 .button:hover, .button:focus {
     background-color: var(--main) !important;
-    color: var(--details) !important;
+    color: white !important;
     box-shadow: 1px 1px 3px var(--text) !important;
     border-color: var(--text);
 }
