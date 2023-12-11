@@ -29,7 +29,7 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
             onClick={handleEdit}
             aria-label="edit post"
           >
-            <i class="fas fa-edit"></i>
+            <i className="fas fa-edit"></i>
           </Dropdown.Item>
         </OverlayTrigger>
 
