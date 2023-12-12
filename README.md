@@ -131,4 +131,12 @@ When selecting the color scheme for my latest project, I aimed for something dis
 
 Google Fonts was implemented on the site. I used Source Code Pro as the primary font and sans-serif as the fallback throughout the entire site. Source Code Pro, renowned for its popularity among coders, offers visual comfort and a broader character width tailored for optimal screen reading.
 
+### Wireframes
 
+<Image here>
+
+<Image here>
+
+<Image here>
+
+##### Back to [top](#table-of-contents)
