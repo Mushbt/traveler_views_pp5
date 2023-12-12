@@ -18,8 +18,10 @@
     - [Languages](#languages)
     - [Libraries, frameworks and dependencies](#libraries-frameworks-and-dependencies)
     - [Tools & Programs](#tools--programs)
+  - [Front-End](#front-end)
+  - [Back-End API](#back-end-api)
   - [Features](#features)
-  - [Future features](#future-features)
+  - [Future features / improvements](#future-features--improvements)
   - [Validation](#validation)
   - [Testing](#testing)
     - [Manual testing of user stories](#manual-testing-of-user-stories)
@@ -168,6 +170,7 @@ Google Fonts was implemented on the site. I used Source Code Pro as the primary 
 - [Fiverr](https://www.fiverr.com/logo-maker/saved-logos?tab=designs) - Was used to create the site logo
 - [Font Awesome](https://fontawesome.com/) - Icons from Font Awesome were used throughout the site
 - [Google Fonts](https://fonts.google.com/) - Font used throught out the site
+- [Git](https://git-scm.com/) Was used for version control within VSCode to push the code to GitHub
 - [GitHub](https://github.com/) Was used as a remote repository to store project code
 - [Gitpod](https://gitpod.io) Was used to host a virtual workspace
 - [Heroku](https://heroku.com) was used to deploy the project into live environment
@@ -178,6 +181,14 @@ Google Fonts was implemented on the site. I used Source Code Pro as the primary 
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) Was Used to validate performance, accessibility, best practice and SEO of the site
 
 ##### Back to [top](#table-of-contents)
+
+## Front-End
+
+### React
+
+## Back-End API
+
+### Django REST Framework
 
 ## Features
 
