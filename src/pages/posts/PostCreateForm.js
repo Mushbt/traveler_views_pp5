@@ -9,6 +9,10 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const [postData, setPostData] = useState({
         title: "",
@@ -52,11 +56,24 @@ function PostCreateForm() {
 
         try {
             const { data } = await axiosReq.post("/posts/", formData);
-            history.push(`/posts/${data.id}`);
+            setSuccessMessage("Post created successfully!");
+            setShowSuccessMessage(true);
+            setErrors({});
+            setTimeout(() => {
+                setSuccessMessage("");
+                setShowSuccessMessage(false);
+                history.push(`/posts/${data.id}`);
+            }, 5000);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
+                setErrorMessage("Failed to create post. Please try again.");
+                setShowErrorMessage(true);
                 setErrors(err.response?.data);
+                setTimeout(() => {
+                    setErrorMessage("");
+                    setShowErrorMessage(false);
+                }, 5000);
             }
         }
     };
@@ -394,6 +411,8 @@ function PostCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {showSuccessMessage && <Alert variant="success">{successMessage}</Alert>}
+                        {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
                         {errors.image?.map((message, idx) => (
                             <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
