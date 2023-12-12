@@ -7,6 +7,10 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
     const [errors, setErrors] = useState({});
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const [postData, setPostData] = useState({
         title: "",
@@ -67,11 +71,24 @@ function PostEditForm() {
 
         try {
             await axiosReq.put(`/posts/${id}/`, formData);
-            history.push(`/posts/${id}`);
+            setSuccessMessage("Post updated successfully!");
+            setShowSuccessMessage(true);
+            setErrors({}); // Clear errors if there were any
+            setTimeout(() => {
+                setSuccessMessage("");
+                setShowSuccessMessage(false);
+                history.push(`/posts/${id}`);
+            }, 5000);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
+                setErrorMessage("Failed to update post. Please try again.");
+                setShowErrorMessage(true);
                 setErrors(err.response?.data);
+                setTimeout(() => {
+                    setErrorMessage("");
+                    setShowErrorMessage(false);
+                }, 5000);
             }
         }
     };
@@ -410,6 +427,8 @@ function PostEditForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {showSuccessMessage && <Alert variant="success">{successMessage}</Alert>}
+                        {showErrorMessage && <Alert variant="danger">{errorMessage}</Alert>}
                         {errors.image?.map((message, idx) => (
                             <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
