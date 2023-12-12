@@ -11,7 +11,7 @@
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
   - [Design](#design)
-    - [Colours](#colours)
+    - [Colors](#colours)
     - [Fonts](#fonts)
     - [Wireframes](#wireframes)
   - [Technologies Used](#technologies-used)
@@ -118,5 +118,17 @@ The essential functionalities include:
 - As a user, I can see feedback messages, so that I know whether there have been updates to my comments, profile, or posts.
 
 ##### Back to [top](#table-of-contents)
+
+## Design
+
+### Colors
+
+When selecting the color scheme for my latest project, I aimed for something distinctive. In my previous four projects, I opted for a straightforward design with muted colors. However, this time, I chose to embrace adventure! Following online research, I discovered that adventurous color palettes complement travel blog sites, making the decision a clear choice. After a brief Google search for 'Adventurous color combinations,' I settled on 'Teal' and 'Mustard' with subtle black accents. This choice imparted a bold personality to my site, of which I am genuinely proud.
+
+<Add color pallete here>
+
+### Fonts
+
+Google Fonts was implemented on the site. I used Source Code Pro as the primary font and sans-serif as the fallback throughout the entire site. Source Code Pro, renowned for its popularity among coders, offers visual comfort and a broader character width tailored for optimal screen reading.
 
 
