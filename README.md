@@ -39,3 +39,14 @@ TravelerViews is a social platform designed for users to showcase their travel e
 ## Project Goals
 
 The goal of this project was to create a platform that facilitates user interaction through features like commenting on posts and following other users' profiles. The concept behind the portal is to maintain an informal and entertaining atmosphere, encouraging users to engage with one another in dynamic ways.
+
+The essential functionalities include:
+
+- Streamlined and user-friendly navigation across all pages
+- User authentication
+- User engagement through posts, comments, likes, and followers
+- Comprehensive user profiles featuring descriptions and images
+- CRUD (Create, Read, Update, Delete) operations for posts, comments, likes, followers, and profile information
+- Convenient filtering of posts by title, author, and category
+- Filtering posts based on liked content and posts from followed users
+- Responsive design for optimal user experience on diverse devices
