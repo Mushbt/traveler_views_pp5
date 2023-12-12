@@ -41,7 +41,7 @@ const UserPasswordForm = () => {
 
             // Redirect after 5 seconds
             setTimeout(() => {
-                history.goBack(); // Replace this with your desired redirection logic
+                history.goBack();
             }, 5000);
         } catch (err) {
             console.error(err);

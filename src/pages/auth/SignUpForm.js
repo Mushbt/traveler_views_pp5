@@ -16,26 +16,29 @@ const SignUpForm = () => {
     const { username, password1, password2 } = signUpData;
 
     const [errors, setErrors] = useState({});
+    const [success, setSuccess] = useState(false);
 
     const history = useHistory();
 
     const handleChange = (e) => {
         setSignUpData({
             ...signUpData,
-            [e.target.name]: e.target.value, //key is an input field name, value is the value entered by the user
+            [e.target.name]: e.target.value,
         });
     };
 
-    /* 
-      Handle submitted in the form data on signing up. Redirect to log in page.
-    */
     const handleSubmit = async (e) => {
-        e.preventDefault(); // prevent page refresh
+        e.preventDefault();
         try {
             await axios.post("/dj-rest-auth/registration/", signUpData);
-            history.push("/login");
+            setSuccess(true);
+            setErrors({});
+            setTimeout(() => {
+                history.push("/login");
+            }, 2000);
         } catch (err) {
             setErrors(err.response?.data);
+            setSuccess(false);
         }
     };
 
@@ -45,27 +48,22 @@ const SignUpForm = () => {
                 <Container className={`${appStyles.Content} p-4 `}>
                     <h1 className="mb-4">Sign up</h1>
 
-                    <Form.Group controlId="username">
-                        <Form.Text id="passwordHelpBlock" muted>
-                            Your username must be inbetween 1-10 characters.
-                        </Form.Text>
-                        <Form.Label className="d-none">Username</Form.Label>
-                        <Form.Control
-                            className={appStyles.Input}
-                            type="text"
-                            placeholder="Your username"
-                            name="username"
-                            maxLength="10"
-                            value={username}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
                     <Form onSubmit={handleSubmit}>
-                        {errors.username?.map((message, idx) => (
-                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
-                                {message}
-                            </Alert>
-                        ))}
+                        <Form.Group controlId="username">
+                            <Form.Text id="passwordHelpBlock" muted>
+                                Your username must be in between 1-10 characters.
+                            </Form.Text>
+                            <Form.Label className="d-none">Username</Form.Label>
+                            <Form.Control
+                                className={appStyles.Input}
+                                type="text"
+                                placeholder="Your username"
+                                name="username"
+                                maxLength="10"
+                                value={username}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
 
                         <Form.Group controlId="password1">
                             <Form.Text id="passwordHelpBlock" muted>
@@ -82,11 +80,7 @@ const SignUpForm = () => {
                                 onChange={handleChange}
                             />
                         </Form.Group>
-                        {errors.password1?.map((message, idx) => (
-                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
-                                {message}
-                            </Alert>
-                        ))}
+
                         <Form.Group controlId="password2">
                             <Form.Label className="d-none">Confirm password</Form.Label>
                             <Form.Control
@@ -98,15 +92,17 @@ const SignUpForm = () => {
                                 onChange={handleChange}
                             />
                         </Form.Group>
-                        {errors.password2?.map((message, idx) => (
-                            <Alert variant="warning" className={appStyles.Alert} key={idx}>
-                                {message}
-                            </Alert>
-                        ))}
 
                         <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault()}>
                             Sign up!
                         </Button>
+
+                        {success && (
+                            <Alert variant="success" className="alert">
+                                <strong>Sign up successful!</strong> Redirecting to login...
+                            </Alert>
+                        )}
+
                         {errors.non_field_errors?.map((message, idx) => (
                             <Alert variant="warning" className={appStyles.Alert} key={idx}>
                                 {message}
