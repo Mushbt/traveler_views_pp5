@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Media, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
@@ -9,9 +9,12 @@ import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {
-  const { profile_id, profile_image, owner, updated_on, content, id, setPost, setComments, } = props;
+  const { profile_id, profile_image, owner, updated_on, content, id, setPost, setComments } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -26,13 +29,25 @@ const Comment = (props) => {
           },
         ],
       }));
+      setShowSuccessAlert(true);
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+        setComments((prevComments) => ({
+          ...prevComments,
+          results: prevComments.results.filter((comment) => comment.id !== id),
+        }));
+      }, 5000);
 
-      setComments((prevComments) => ({
-        ...prevComments,
-        results: prevComments.results.filter((comment) => comment.id !== id),
-      }));
-    } catch (err) { }
+    } catch (err) {
+      console.error(err);
+      setShowErrorAlert(true);
+      setTimeout(() => {
+        setShowErrorAlert(false);
+      }, 5000);
+
+    }
   };
+
 
   return (
     <div>
@@ -60,6 +75,16 @@ const Comment = (props) => {
               />
             ) : (
               <p className="pr-2 pt-2">{content}</p>
+            )}
+            {showSuccessAlert && (
+              <Alert variant="success" onClose={() => setShowSuccessAlert(false)} dismissible>
+                Comment deleted successfully!
+              </Alert>
+            )}
+            {showErrorAlert && (
+              <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+                Failed to delete comment. Please try again.
+              </Alert>
             )}
           </div>
         </Media.Body>
