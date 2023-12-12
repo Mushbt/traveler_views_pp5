@@ -57,65 +57,65 @@ The essential functionalities include:
 
 #### Navigation
 
-- As a user, I can view a navbar from every page, so that I can navigate easily between pages.
-- As a user, I can navigate through pages quickly, so that I can view content seamlessly without page refresh.
+1. As a user, I can view a navbar from every page, so that I can navigate easily between pages.
+2. As a user, I can navigate through pages quickly, so that I can view content seamlessly without page refresh.
 
 #### Authentication
 
-- As a user, I can create a new account, so that I can access all the features for signed up users.
-- As a user, I can sign in to the app, so that I can access functionality for logged in users.
-- As a user, I can tell if I am logged in or not, so that I can log in if I need to.
-- As a user, I can maintain my logged-in status until I choose to log out, so that my user experience is not compromised.
-- As a user, I can view user's avatars, so that I can easily identify users of the application.
-- As a user, I can change the password to my account, so that I can keep my profile secure.
+3. As a user, I can create a new account, so that I can access all the features for signed up users.
+4. As a user, I can sign in to the app, so that I can access functionality for logged in users.
+5. As a user, I can tell if I am logged in or not, so that I can log in if I need to.
+6. As a user, I can maintain my logged-in status until I choose to log out, so that my user experience is not compromised.
+8. As a user, I can view user's avatars, so that I can easily identify users of the application.
+34. As a user, I can change the password to my account, so that I can keep my profile secure.
 
 ### Epic 2
 
 ### Adding & Liking Posts
 
-- As a logged in user I can create posts so that I can share my images with the world!
-- As a user, I can view the details of a single post, so that I can learn more about it.
-- As a logged in user, I can like a post, so that I can show my support for the posts that interest me.
+9. As a logged in user I can create posts so that I can share my images with the world!
+10. As a user, I can view the details of a single post, so that I can learn more about it.
+11. As a logged in user, I can like a post, so that I can show my support for the posts that interest me.
 
 ### Epic 3
 
 #### The Profile Page
 
-- As a user I can view other users profiles so that I can see their posts and learn more about them.
-- As a user I can see a list of the most followed profiles so that I can see which profiles are popular.
-- As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them.
-- As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
-- As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them.
-- As a logged in user I can edit my profile so that I can change my profile picture and bio.
-- As a logged in user I can update my username and password so that I can change my display name and keep my profile secure.
-- As a user, I can delete my account if I decide to no longer use the app.
+24. As a user I can view other users profiles so that I can see their posts and learn more about them.
+25. As a user I can see a list of the most followed profiles so that I can see which profiles are popular.
+26. As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them.
+27. As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
+28. As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them.
+29. As a logged in user I can edit my profile so that I can change my profile picture and bio.
+30. As a logged in user I can update my username and password so that I can change my display name and keep my profile secure.
+33. As a user, I can delete my account if I decide to no longer use the app.
 
 ### Epic 4
 
 #### The Post Page
 
-- As a user I can view the posts page so that I can read the comments about the post.
-- As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created.
-- As a logged in user I can add comments to a post so that I can share my thoughts about the post.
-- As a user I can see how long ago a comment was made so that I know how old a comment is.
-- As a user I can read comments on posts so that I can read what other users think about the posts.
-- As an owner of a comment I can delete my comment so that I can control removal of my comment from the application.
-- As an owner of a comment I can edit my comment so that I can fix or update my existing comment.
+17. As a user I can view the posts page so that I can read the comments about the post.
+18. As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created.
+19. As a logged in user I can add comments to a post so that I can share my thoughts about the post.
+20. As a user I can see how long ago a comment was made so that I know how old a comment is.
+21. As a user I can read comments on posts so that I can read what other users think about the posts.
+22. As an owner of a comment I can delete my comment so that I can control removal of my comment from the application.
+23. As an owner of a comment I can edit my comment so that I can fix or update my existing comment.
 
 ### Epic 5
 
 #### The Posts page
 
-- As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content.
-- As a user, I can search for posts with a country tag, so that I can find the posts for a specific country I am most interested in.
-- As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most.
-- As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
-- As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page".
+12. As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content.
+13. As a user, I can search for posts with a country tag, so that I can find the posts for a specific country I am most interested in.
+14. As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most.
+15. As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
+16. As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page".
 
 ### General
 
-- As the site owner, I want full responsiveness for my site, so that users can seamlessly utilize it across various devices.
-- As a user, I can see feedback messages, so that I know whether there have been updates to my comments, profile, or posts.
+31. As the site owner, I want full responsiveness for my site, so that users can seamlessly utilize it across various devices.
+32. As a user, I can see feedback messages, so that I know whether there have been updates to my comments, profile, or posts.
 
 ##### Back to [top](#table-of-contents)
 
@@ -195,9 +195,35 @@ I used React for developing this app for several reasons:
 - Widely Adopted in Social Networking and Media Applications - React stands as the go-to library for developing applications in the social networking and media content domains. It is extensively utilized by major platforms such as Meta (formerly Facebook), Instagram, Netflix, Airbnb, and more.
 - Component Reusability - React promotes the reusability of components, eliminating the need to rewrite code for similar features, contributing to a more efficient and streamlined development process.
 
+There were various components created and reused across this application.
+
+- `<Asset />` - A versatile and reusable component that dynamically presents various versions based on the props provided:
+  - Loading GIF (Spinner): Displayed when content is in the process of loading.
+  - Image: Renders an image with specified src and alt attributes.
+  - Paragraph: Presents a paragraph containing a specific message.
+
+- `<Avatar />` - A reusable component designed for rendering profile images in the user interface. By accepting various props, it enables customization of the image source and size, adjusting dimensions based on the component's rendering context. Instances of use include the <NavBar /> component, the Post page, or the Profile page.
+
+`<DropdownMenu />` - This versatile component is employed to display a dropdown menu, offering users the ability to edit or delete their posts or comments. Additionally, it facilitates actions like profile editing and password modification.
+
+- `<Alert />` - This versatile component is designed to present informative feedback messages to users following actions such as comment editing/deletion, post deletion, and updates to profile information or passwords. It enhances user experience by delivering contextual alerts.
+
+- `<SecondaryNavBar />` - A reusable component featuring three icons—enabling users to add a post, view liked posts, or explore posts from profiles they follow. This component is seamlessly integrated across multiple pages within the application, ensuring consistent accessibility.
+
+- `<NavBar />`- A versatile component with dynamic content based on the user's login status. If the user is logged in, it showcases an <Avatar /> which is intended to show the User they are logged in. If the avatar is clicked, a <DropdownMenu /> with the options to logout or to be redirected to the Users own profile. For users who are not logged in, it presents icon links to sign up or log in instead of the avatar. This component seamlessly integrates across every page within the application.
+
+- `<NotFound />` - A dedicated component designed for presenting a visually appealing 404 error graphic message along with a return-to-menu button. This component is triggered when a user enters a URL that does not correspond to any existing content within the application.
+
+- `<PopularProfiles />` - A versatile component designed for showcasing the top three most followed profiles within the application. This reusable component includes elements such as the user's avatar, name, and a follow/unfollow button. The <PopularProfiles /> component is seamlessly integrated throughout the entire app, complementing the user experience alongside components like <SecondaryNavBar />.
+
+
 ## Back-End API
 
 ### Django REST Framework
+The API for this Front-End application was built with the Django REST Framework. The repository with a README file for the DRF Back-End can be found
+[here](https://github.com/Mushbt/drf_api_pp5)
+
+##### Back to [top](#table-of-contents)
 
 ## Features
 
