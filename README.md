@@ -186,6 +186,15 @@ Google Fonts was implemented on the site. I used Source Code Pro as the primary 
 
 ### React
 
+React is a JavaScript library that prioritizes a declarative, efficient, and adaptable approach to building user interfaces. Its main objective is to enhance the clarity of interface logic and state management throughout the development process. This is achieved by organizing the UI into a set of autonomous and reusable components. ([source](https://www.freecodecamp.org/news/the-react-handbook-b71c27b0a795/)).
+
+I used React for developing this app for several reasons:
+- Speed - Implementing React results in a notable improvement in page loading speed, reducing wait times and positively impacting user experience and satisfaction.
+- Flexibility - React's modular structure enhances code maintainability and flexibility compared to other front-end frameworks.
+- React Bootstrap - A superb choice for enhancing user experience, React Bootstrap is employed for styling and responsiveness. It provides pre-built React components designed with accessibility in mind—a crucial aspect in front-end application development.
+- Widely Adopted in Social Networking and Media Applications - React stands as the go-to library for developing applications in the social networking and media content domains. It is extensively utilized by major platforms such as Meta (formerly Facebook), Instagram, Netflix, Airbnb, and more.
+- Component Reusability - React promotes the reusability of components, eliminating the need to rewrite code for similar features, contributing to a more efficient and streamlined development process.
+
 ## Back-End API
 
 ### Django REST Framework
