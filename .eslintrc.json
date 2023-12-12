@@ -25,24 +25,44 @@
         "import/order": [
             "error",
             {
-              "groups": [ "builtin", "external", "internal", ["parent", "sibling"] ],
-              "pathGroups": [
-                {
-                  "pattern": "react",
-                  "group": "external",
-                  "position": "before"
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal",
+                    [
+                        "parent",
+                        "sibling"
+                    ]
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react"
+                ],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
                 }
-              ],
-              "pathGroupsExcludedImportTypes": ["react"],
-              "newlines-between": "always",
-              "alphabetize": {
-                "order": "asc",
-                "caseInsensitive": true
-              }
             }
-          ],
+        ],
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
-        "no-unused-vars": ["warn", { "argsIgnorePattern": "req|res|next|__" }]
-      }
+        "no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "req|res|next|__"
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
 }
