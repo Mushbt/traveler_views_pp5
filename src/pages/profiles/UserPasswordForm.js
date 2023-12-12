@@ -17,6 +17,8 @@ const UserPasswordForm = () => {
     const { new_password1, new_password2 } = userData;
 
     const [errors, setErrors] = useState({});
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
 
     const handleChange = (event) => {
         setUserData({
@@ -35,9 +37,16 @@ const UserPasswordForm = () => {
         event.preventDefault();
         try {
             await axiosRes.post("/dj-rest-auth/password/change/", userData);
-            history.goBack();
+            setShowSuccessAlert(true);
+
+            // Redirect after 5 seconds
+            setTimeout(() => {
+                history.goBack(); // Replace this with your desired redirection logic
+            }, 5000);
         } catch (err) {
+            console.error(err);
             setErrors(err.response?.data);
+            setShowErrorAlert(true);
         }
     };
 
@@ -45,11 +54,29 @@ const UserPasswordForm = () => {
         <Row>
             <Col className="py-2 mx-auto text-center" md={8}>
                 <Container className={appStyles.Content}>
+                    {showSuccessAlert && (
+                        <Alert
+                            variant="success"
+                            onClose={() => setShowSuccessAlert(false)}
+                            dismissible
+                        >
+                            Password changed successfully!
+                        </Alert>
+                    )}
+                    {showErrorAlert && (
+                        <Alert
+                            variant="danger"
+                            onClose={() => setShowErrorAlert(false)}
+                            dismissible
+                        >
+                            Failed to change password. Please try again.
+                        </Alert>
+                    )}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group>
                             <Form.Label>New password</Form.Label>
                             <Form.Control
-                                placeholder="type your new password"
+                                placeholder="Type your new password"
                                 type="password"
                                 value={new_password1}
                                 onChange={handleChange}
@@ -65,14 +92,13 @@ const UserPasswordForm = () => {
                         <Form.Group>
                             <Form.Label>Confirm password</Form.Label>
                             <Form.Control
-                                placeholder="confirm new password"
+                                placeholder="Confirm new password"
                                 type="password"
                                 value={new_password2}
                                 onChange={handleChange}
                                 name="new_password2"
                                 className={`${appStyles.Input} text-center`}
                             />
-
                         </Form.Group>
                         {errors?.new_password2?.map((message, idx) => (
                             <Alert variant="warning" key={idx}>
