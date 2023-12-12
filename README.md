@@ -18,10 +18,8 @@
     - [Languages](#languages)
     - [Libraries, frameworks and dependencies](#libraries-frameworks-and-dependencies)
     - [Tools & Programs](#tools--programs)
-  - [Front-End](#front-end)
-  - [Back-End API](#back-end-api)
   - [Features](#features)
-  - [Future features / improvements](#future-features--improvements)
+  - [Future features](#future-features)
   - [Validation](#validation)
   - [Testing](#testing)
     - [Manual testing of user stories](#manual-testing-of-user-stories)
@@ -178,5 +176,51 @@ Google Fonts was implemented on the site. I used Source Code Pro as the primary 
   - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) Was used to validate the CSS
   - [ESLint](https://eslint.org/) used to validate JSX code
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) Was Used to validate performance, accessibility, best practice and SEO of the site
+
+##### Back to [top](#table-of-contents)
+
+## Features
+
+### Landing page/Posts page
+
+### Logo and Navigation Bar
+
+### Second Navigation Bar
+
+### Sign up form
+
+### Login form
+
+### Post create/update form
+
+### Posts page
+
+### Post page
+
+### Comments
+
+### Likes
+
+### Profile page
+
+### Profile avatar
+
+### Password change form
+
+### Infinite scroll
+
+### Follow/unfollow
+
+### Popular Users
+
+### Popular Countries
+
+### Search bar
+
+### 404 error page
+
+### Feedback messages
+
+## Future features
 
 ##### Back to [top](#table-of-contents)
