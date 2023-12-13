@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React, { useEffect, useState } from "react";
 
 import { Button, Col, Container, Image, Row } from "react-bootstrap";

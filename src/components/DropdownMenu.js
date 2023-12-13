@@ -1,10 +1,10 @@
+/* eslint-disable react/display-name */
 import React from "react";
 
 import { Dropdown, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { useHistory } from "react-router";
 
 import styles from "../styles/DropdownMenu.module.css";
-
 
 const DropdownDots = React.forwardRef(({ onClick }, ref) => (
   <i

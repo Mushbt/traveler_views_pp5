@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React, { useEffect, useState } from "react";
 
 import { Badge, Col, Container, Form, Row } from "react-bootstrap";
