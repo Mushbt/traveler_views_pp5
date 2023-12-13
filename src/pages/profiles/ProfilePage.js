@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
+
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import Asset from "../../components/Asset";
-import appStyles from "../../App.module.css";
-import styles from "../../styles/ProfilePage.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useParams } from "react-router-dom";
+
 import PopularProfiles from "./PopularProfiles";
+import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import NoResultsImage from "../../assets/no_results.png"
+import Asset from "../../components/Asset";
+import { ProfileEditDropdown } from "../../components/DropdownMenu";
 import SecondaryNavBar from "../../components/SecondaryNavBar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Post from "../posts/Post";
+import styles from "../../styles/ProfilePage.module.css";
 import { fetchMoreData } from "../../utils/utils";
-import NoResultsImage from "../../assets/no_results.png"
-import { ProfileEditDropdown } from "../../components/DropdownMenu";
+import Post from "../posts/Post";
+
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -22,9 +25,13 @@ function ProfilePage() {
     const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
-    const is_owner = currentUser?.username === profile?.owner;
+    const is_owner = currentUser?.username === profile?.owner; // Check if the logged in User is the profile's owner
     const [profilePosts, setProfilePosts] = useState({ results: [] });
 
+    /*
+      Makes an API request to fetch user profile and their posts
+      Updates profile page data
+    */
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -40,12 +47,15 @@ function ProfilePage() {
                 setProfilePosts(profilePosts);
                 setHasLoaded(true);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         fetchData();
     }, [id, setProfileData]);
 
+    /*
+      Displays the profile information
+    */
     const mainProfile = (
         <>
             <Row noGutters className="px-3 text-center">
@@ -54,8 +64,10 @@ function ProfilePage() {
                         className={styles.ProfileImage}
                         roundedCircle
                         src={profile?.image}
+                        alt="Profile Picture"
                     />
                 </Col>
+
                 <Col lg={6}>
                     <h3 className="m-3">{profile?.owner}</h3>
                     <Row className="justify-content-center">
@@ -73,8 +85,12 @@ function ProfilePage() {
                         </Col>
                     </Row>
                 </Col>
+
                 <Col lg={3} className="text-lg-right mt-md-3 mt-sm-1">
+                    {/* If user is the profile owner dropdownmenu will display */}
                     {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+
+                    {/* display follow and unfollow buttons on other user's profile */}
                     {currentUser &&
                         !is_owner &&
                         (profile?.following_id ? (
@@ -92,10 +108,13 @@ function ProfilePage() {
         </>
     );
 
+    /*
+      Displays posts belonging to the profile
+    */
     const mainProfilePosts = (
         <>
             <hr />
-            <p className="text-center">{profile?.owner}'s posts</p>
+            <p className="text-center">{profile?.owner}&lsquo;s posts</p>
             <hr className={styles.Line} />
             {profilePosts.results.length ? (
                 <InfiniteScroll

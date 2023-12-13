@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
+
 import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 const UserPasswordForm = () => {
     const history = useHistory();
@@ -15,11 +18,13 @@ const UserPasswordForm = () => {
         new_password2: "",
     });
     const { new_password1, new_password2 } = userData;
-
     const [errors, setErrors] = useState({});
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
 
+    /* 
+     Handles changes to the input fields
+    */
     const handleChange = (event) => {
         setUserData({
             ...userData,
@@ -27,12 +32,20 @@ const UserPasswordForm = () => {
         });
     };
 
+    /*
+     Handles the edit of user password
+    */
     useEffect(() => {
         if (currentUser?.profile_id?.toString() !== id) {
             history.push("/");
         }
     }, [currentUser, history, id]);
 
+    /* 
+     Handles the new password submission
+     Displays a feedback message to the user on successful password change
+     Redirects the user to the profile page after a short delay
+    */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory, useParams } from "react-router-dom";
+
 import { Alert, Button, Col, Container, Form, Image, Row } from "react-bootstrap";
+import { useHistory, useParams } from "react-router-dom";
+
 import { axiosReq } from "../../api/axiosDefaults";
-import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
@@ -23,6 +25,10 @@ const ProfileEditForm = () => {
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
 
+  /*
+    Handles the edit of user profile
+    Makes a request to the API based on profile's ID
+  */
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -31,7 +37,7 @@ const ProfileEditForm = () => {
           const { name, description, image } = data;
           setProfileData({ name, description, image });
         } catch (err) {
-          console.log(err);
+          // console.log(err);
           history.push("/");
         }
       } else {
@@ -42,6 +48,9 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  /* 
+    Handles changes to the profile form input fields
+  */
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -49,6 +58,11 @@ const ProfileEditForm = () => {
     });
   };
 
+  /* 
+    Handles the profile form submission
+    Displays a Alert to the user on successful submission
+    Redirects the user to the profile page after a short delay
+  */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -68,10 +82,10 @@ const ProfileEditForm = () => {
       setShowSuccessAlert(true);
 
       setTimeout(() => {
-        history.goBack(); 
+        history.goBack();
       }, 5000);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       setErrors(err.response?.data);
       setShowErrorAlert(true);
     }

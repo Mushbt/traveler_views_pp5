@@ -1,10 +1,15 @@
 import React from 'react';
+
 import { Container } from 'react-bootstrap';
+
+import Profile from "./Profile";
 import appStyles from "../../App.module.css";
 import Asset from '../../components/Asset';
-import Profile from "./Profile";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 
+/*
+  Displays first three most followed profiles in the app
+*/
 const PopularProfiles = () => {
     const { popularProfiles } = useProfileData();
     return (

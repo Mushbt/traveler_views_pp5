@@ -1,15 +1,16 @@
 import React from 'react';
-import styles from '../../styles/Profile.module.css';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { Link } from 'react-router-dom';
-import Avatar from '../../components/Avatar';
+
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+import Avatar from '../../components/Avatar';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { useSetProfileData } from '../../contexts/ProfileDataContext';
+import styles from '../../styles/Profile.module.css';
 
 const Profile = (props) => {
   const { profile, imageSize = 40 } = props;
   const { id, following_id, image, owner } = profile;
-
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -29,6 +30,7 @@ const Profile = (props) => {
       </div>
 
       <div className={`${styles.button} ml-auto`}>
+        {/* Displays follow and unfollow buttons and does not allow users to follow their own profile */}
         {currentUser &&
           !is_owner &&
           (following_id ? (
