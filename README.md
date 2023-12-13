@@ -471,6 +471,21 @@ They are as followed:
 <img src="docs/features/comment_deleted_success.png">
 </details>
 
-## Future features
+## Future features & Improvements
+
+### Future features
+- Email Requirement - Users are prompted to provide an email address during the signup process. This information is vital for the Forgotten Password feature detailed below.
+- Forgotten Password Feature - In case users forget their password, this feature allows them to recover access to their account.
+- Messaging Feature - Users can engage in direct communication by sending messages to each other, allowing better interactions and communication within the site.
+- Grid Layout for User Posts - When viewing a specific user's profile, users can explore their posts presented in a visually appealing grid layout, enhancing the overall user experience.
+- Contact Site Admin - Allows users to address any concerns, queries or issues. Users can easily reach out to site admin. This feature ensures a direct line of communaction for user support and assistance.
+
+### Improvements
+- Reduced Navbar Height - The height of the Navbars can be minimized to provide a sleeker and more streamlined appearance.
+- Larger Site Logo -  Enlarging the site logo enhances its visibility.
+- Fixed Secondary Navbar, Popular Profiles, and Popular Countries - Fixing these elements to the page ensures users have constant access, allowing navigation even when scrolling down the page.
+- Popular Countries Section - Display countries with the most posts dynamically to provide users with more site-relevant information.
+- Spinner Color - Changing the color of the loading spinner for new posts can be enhance visual contrast and improve the overall user experience.
+- Exclude User's Own Profile in Popular Users - Ensure that a user's own profile is excluded from the Popular Users section to optimize space and avoid redundancy.
 
 ##### Back to [top](#table-of-contents)
