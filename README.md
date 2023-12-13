@@ -111,11 +111,14 @@ The essential functionalities include:
 14. As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most.
 15. As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
 16. As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page".
+35. As a user, I can search for content with specific keywords, so that I can easily find content I am looking for.
 
 ### General
 
 31. As the site owner, I want full responsiveness for my site, so that users can seamlessly utilize it across various devices.
 32. As a user, I can see feedback messages, so that I know whether there have been updates to my comments, profile, or posts.
+36. As a site owner, I want users to be directed to a 404 error page incase they enter a wrong URL, so that users can use a visible button to go back rather than use the browser.
+
 
 ##### Back to [top](#table-of-contents)
 
@@ -238,7 +241,7 @@ Initially, I contemplated incorporating a conventional landing page, presenting 
   - Users who are not logged in will see the Home, Sign up & Log in Icons.
   - Logged-in users will see the Home Icon and their user Avatar. The Avatar has a small arrow next to it which implies to the user it can be clicked. This will toggle a drop down menu which gives the user the options to navigate to their profile or log out.
 - The navigation bar is fully responsive, transforming into a hamburger menu on smaller screen sizes for seamless user interaction.
-- User stories Covered: 1, 5 & 31
+- User stories Covered: 1, 5, 7 & 31
 
 <details><summary>See featured screenshots</summary>
 <img src="docs/features/logged_out_navbar.png">
@@ -298,32 +301,175 @@ Initially, I contemplated incorporating a conventional landing page, presenting 
 </details>
 
 ### Posts page
+As detailed in the Landing page section above, the posts page serves as the default destination for all users upon entering the site.
+- Displays posts in descending order based on how recent they are.
+- Features a search bar positioned above the posts for easy content retrieval.
+- Includes the secondary navigation bar for enhanced user interaction.
+- Displays a section dedicated to top users.
+- Includes a section featuring popular countries.
+- User stories covered: 12
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/posts_page.png">
+</details>
 
 ### Post page
+- Contains individual post details, including the image, title, optional description, and country tag.
+- Displays the count of likes and comments the post has received.
+- Includes a like icon for users to express their appreciation for the post.
+- Features a comments section below the post for user engagement.
+- User stories covered: 10, 17, 21, 
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/post_page.png">
+</details>
 
 ### Comments
+- Allows users to express their thought on a post.
+- Shows the timestamp indicating how long ago the comment was posted.
+- Allows users to edit or delete their own comments in case of errors or changes.
+- User stories covered: 19, 20, 21, 22 and 23
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/comments.png">
+<img src="docs/features/add_comment.png">
+<img src="docs/features/edit_comment.png">
+<img src="docs/features/update_comment.png">
+<img src="docs/features/delete_comment.png">
+</details>
 
 ### Likes
+- Allows users to express their interest in a post.
+- The like icon turns black when a user likes the post.
+- Users are restricted from liking their posts.
+- Provides users with the option to filter the displayed posts to show only those they have liked.
+- User stories covered: 11
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/before_liked.png">
+<img src="docs/features/after_liked.png">
+<img src="docs/features/cant_like.png">
+</details>
 
 ### Profile page
+- Contains user name and avatar
+- If the user has shared a brief introduction or information about themselves, it will be visible in their profile.
+- Displays statistics on the number of posts, followers, and users they are following.
+- For users on their profile page, a dropdown menu is displayed, allowing them to edit their profile or change their password.
+- User stories covered: 24, 26, 28, 29, 30 and 34
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/user_profile.png">
+<img src="docs/features/profile_info.png">
+<img src="docs/features/own_profile.png">
+<img src="docs/features/own_profile_1.png">
+</details>
 
 ### Profile avatar
+The profile avatar is displayed in various sections of the site:
+- The Navbar when the user is logged in
+- At the top of each post
+- On the profile page for every user
+- Beside each comment
+- Displayed in the 'Popular Profiles' section
+- User stories covered: 8
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/avatar.png">
+</details>
 
 ### Password change form
+- Allows users to change their profile password incase they feel their profile is compromised
+- User stories covered: 34
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/change_password.png">
+</details>
 
 ### Infinite scroll
+- Allows users to seamlessly scroll through content without the need to load new pages 
+- Used for posts and comments
+- Enhances user experience and engagement
+- During the loading process, a "Loading Spinner" is displayed to provide visual feedback to users.
+- User Stories covered: 2 and 16
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/infinite scroll.png">
+</details>
 
 ### Follow/unfollow
+- Users have the ability to follow other users if they like their content, enabling easy access to their posts via the feed icon in the secondary navbar.
+- Should a user change their mind, they can unfollow at any time.
+- User stories covered: 15 and 27
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/follow.png">
+<img src="docs/features/unfollow.png">
+</details>
 
 ### Popular Users
+- Displays the top three most followed users, presenting the most popular profiles in descending order.
+- Users can conveniently follow these profiles using dedicated follow buttons.
+User stories covered: 25
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/popular_users.png">
+</details>
 
 ### Popular Countries
+- Displays the most popular countries, providing users with the option to filter content based on these countries. (The list of popular countries was created through google searches to identify the most sought-after travel destinations in 2023.)
+User stories covered: 13
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/popular_countries.png">
+</details>
 
 ### Search bar
+- Allows users to search for posts by entering keywords such as username, country, or title. It enhances the user experience by allowing precise content filtering.
+User stories covered: 35
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/search_bar.png">
+</details>
 
 ### 404 error page
+- 404 error page will display if the user enters a URL that does not exist.
+- Contains a button which will redirect the user back the posts page.
+- User stories covered: 36
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/404_error.png">
+</details>
 
 ### Feedback messages
+- User is provided with feedback messages about certain actions they have tried to perform. There are successful messages and unsuccessful messages which gives the user visual confirmation.
+They are as followed:
+ - Successful in creating a profile
+ - Successful and unsuccessful in updating a profile
+ - Successful and unsuccessful in updating password
+ - Successful and unsuccessful in creating a post
+ - Successful and unsuccessful in updating a post
+ - Successful in deleting a post
+ - Successful and unsuccessful in creating a comment
+ - Successful in updating a comment
+ - Successful in deleting a comment
+
+ <details><summary>See featured screenshots</summary>
+<img src="docs/features/signup_success.png">
+<img src="docs/features/profile_update_success.png">
+<img src="docs/features/failed_update_profile.png">
+<img src="docs/features/password_update_success.png">
+<img src="docs/features/failed_password_update.png">
+<img src="docs/features/post_success.png">
+<img src="docs/features/failed_post.png">
+<img src="docs/features/post_update_success.png">
+<img src="docs/features/failed_update_post.png">
+<img src="docs/features/delete_post_success.png">
+<img src="docs/features/success_comment.png">
+<img src="docs/features/failed_comment.png">
+<img src="docs/features/update_comment_success.png">
+<img src="docs/features/comment_deleted_success.png">
+</details>
 
 ## Future features
 
