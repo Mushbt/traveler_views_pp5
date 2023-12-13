@@ -1,25 +1,23 @@
-/* NavBar.module.css */
-
 .NavBar {
     background-color: #FFD700; 
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     min-height: 100px;
-    padding: 15px 0; /* adjust padding as needed */
+    padding: 15px 0;
 }
 
 .NavLink {
-    color: #333333; /* Charcoal Gray text */
-    padding: 10px 15px; /* adjust padding as needed */
-    transition: color 0.3s ease; /* smooth color transition on hover */
+    color: #333333;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
 }
 
 .NavLink:hover {
-    color: #FFD700; /* Mustard on hover */
+    color: #FFD700;
 }
 
 .Active i {
     transform: rotate(-10deg) scale(1.1);
-    color: var(--main); /* Mustard for active state */
+    color: var(--main);
 }
 
 .LogoContainer {
@@ -29,33 +27,31 @@
 }
 
 .Logo {
-    max-height: 100%; /* adjust max-height as needed */
+    max-height: 100%;
     width: auto;
 }
 
-/* Mobile Navigation Toggle Icon Color */
+
 .navbar-toggler-icon {
-    background-color: #333333; /* Charcoal Gray toggle icon color */
+    background-color: #333333;
 }
 
-/* Mobile Navigation Link Color */
 .navbar-nav .nav-link {
-    color: #333333 !important; /* Charcoal Gray text */
+    color: #333333 !important;
 }
 
-/* Mobile Navigation Link Hover Color */
 .navbar-nav .nav-link:hover {
-    color: #FFD700 !important; /* Mustard on hover */
+    color: #FFD700 !important;
 }
 
 /* Media Query for Smaller Screens */
 @media (max-width: 767px) {
     .NavBar {
-        min-height: 50px; /* Adjust the min-height for smaller screens */
+        min-height: 50px;
     }
 
     .Logo {
-        max-height: 100px; /* Adjust the max-height for smaller screens */
+        max-height: 100px;
     }
 
     .LogoContainer {
@@ -71,6 +67,6 @@
 /* Media Query for Larger Screens */
 @media (min-width: 768px) {
     .Logo {
-        max-height: 150px; /* Adjust the max-height for larger screens */
+        max-height: 150px;
     }
 }
