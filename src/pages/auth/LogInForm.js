@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/LogInSignUpForm.module.css";
-import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
-import appStyles from "../../App.module.css";
+
 import axios from "axios";
+import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+
+import appStyles from "../../App.module.css";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import styles from "../../styles/LogInSignUpForm.module.css";
 import { setTokenTimestamp } from "../../utils/utils";
 
 function LogInForm() {
@@ -15,12 +17,14 @@ function LogInForm() {
         username: "",
         password: "",
     });
+
     const { username, password } = logInData;
-
     const [errors, setErrors] = useState({});
-
     const history = useHistory();
 
+    /* 
+    Handles changes to the input fields
+    */
     const handleChange = (e) => {
         setLogInData({
             ...logInData,
@@ -29,7 +33,8 @@ function LogInForm() {
     };
 
     /* 
-      Handle submitted in the form data on logging in. Redirect to home page.
+      Handle submitted in the form data on logging in.
+      Redirect to main page.
     */
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -60,6 +65,7 @@ function LogInForm() {
                             onChange={handleChange}
                         />
                     </Form.Group>
+                    {/* Login form with alert messages for any errors in input fields */}
                     <Form onSubmit={handleSubmit}>
                         {errors.username?.map((message, idx) => (
                             <Alert variant="warning" className={appStyles.Alert} key={idx}>
@@ -93,13 +99,13 @@ function LogInForm() {
                         ))}
 
                         <Link className={styles.Link} to="/signup">
-                            Don't have an account? Click <span>here </span>to sign up.
+                            Don&lsquo;t have an account? Click <span>here </span>to sign up.
                         </Link>
                     </Form>
                 </Container>
             </Col>
         </Row>
     );
-};
+}
 
 export default LogInForm;

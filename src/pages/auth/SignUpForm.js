@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import styles from "../../styles/LogInSignUpForm.module.css";
-import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
-import appStyles from "../../App.module.css";
+
 import axios from "axios";
+import { Alert, Form, Button, Col, Row, Container } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+
+import appStyles from "../../App.module.css";
 import { useRedirect } from "../../hooks/useRedirect";
+import styles from "../../styles/LogInSignUpForm.module.css";
 
 const SignUpForm = () => {
     useRedirect("loggedIn");
@@ -14,19 +16,24 @@ const SignUpForm = () => {
         password2: "",
     });
     const { username, password1, password2 } = signUpData;
-
     const [errors, setErrors] = useState({});
-    const [success, setSuccess] = useState(false);
-
+    const [success, setSuccess] = useState(false); // Success alert if user successfully signs up
     const history = useHistory();
 
+    /* 
+     Handles changes to any of the input fields
+    */
     const handleChange = (e) => {
         setSignUpData({
             ...signUpData,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value, // key is an input field name, value is the value entered by the user
         });
     };
 
+    /* 
+     Handles submitted in the form data on signing up
+     Redirects user to login page
+    */
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -35,7 +42,7 @@ const SignUpForm = () => {
             setErrors({});
             setTimeout(() => {
                 history.push("/login");
-            }, 2000);
+            }, 2000); // Timeout of 2 seconds before user is redirected to log in page
         } catch (err) {
             setErrors(err.response?.data);
             setSuccess(false);
@@ -48,6 +55,7 @@ const SignUpForm = () => {
                 <Container className={`${appStyles.Content} p-4 `}>
                     <h1 className="mb-4">Sign up</h1>
 
+                    {/* Sign up form with alert messages for any errors in input fields */}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="username">
                             <Form.Text id="passwordHelpBlock" muted>
@@ -96,7 +104,8 @@ const SignUpForm = () => {
                         <Button className={`my-3 ${appStyles.button}`} type="submit" onMouseDown={(e) => e.preventDefault()}>
                             Sign up!
                         </Button>
-
+                        
+                        {/* Success Alert displays if user is successful in signing up */}
                         {success && (
                             <Alert variant="success" className="alert">
                                 <strong>Sign up successful!</strong> Redirecting to login...
