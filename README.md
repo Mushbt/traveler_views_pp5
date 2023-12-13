@@ -228,12 +228,23 @@ The API for this Front-End application was built with the Django REST Framework.
 ## Features
 
 ### Landing page
+Initially, I contemplated incorporating a conventional landing page, presenting users with information about the site and requiring them to sign up or log in for further exploration. However, upon careful consideration, I opted against this approach. The decision was driven by a desire to allow users to freely explore the site, peruse its content, and then make a choice on whether to sign up.
 - The landing page serves as the initial destination for anyone entering the site. Users who have not signed up or logged in experience a view-only interaction during their visit. 
 - Users have the ability to explore various user profiles and posts on the site; however, interaction with them is restricted for those who haven't signed up or logged in. Additionally, engagement with the Secondary Navbar is not accessible to this user group. (Further details provided in the Second Navigation Bar section below)
 
 ### Logo and Navigation Bar
+- The logo and navigation bar are consistently present across all pages.
+- Navbar has two variants:
+  - Users who are not logged in will see the Home, Sign up & Log in Icons.
+  - Logged-in users will see the Home Icon and their user Avatar. The Avatar has a small arrow next to it which implies to the user it can be clicked. This will toggle a drop down menu which gives the user the options to navigate to their profile or log out.
+- The navigation bar is fully responsive, transforming into a hamburger menu on smaller screen sizes for seamless user interaction.
+- User stories Covered: 1, 5 & 31
 
+<details><summary>See featured screenshots</summary>
+
+</details>
 ### Second Navigation Bar
+- 
 
 ### Sign up form
 
