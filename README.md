@@ -241,16 +241,61 @@ Initially, I contemplated incorporating a conventional landing page, presenting 
 - User stories Covered: 1, 5 & 31
 
 <details><summary>See featured screenshots</summary>
-
+<img src="docs/features/logged_out_navbar.png">
+<img src="docs/features/logged_out_navbar_burger_menu.png">
+<img src="docs/features/logged_out_navbar_responsive.png">
+<img src="docs/features/logged_in_navbar.png">
+<img src="docs/features/logged_in_navbar_dropdown.png">
 </details>
+
 ### Second Navigation Bar
-- 
+- Allows users to create a post
+- Allows users the option to see only the photos they have liked
+- Allows users the option to see only the posts from users they have followed
+- Displayed on most site pages, with the exception of pages related to creating, updating posts, updating profiles, and changing password.
+- Users who are not logged in or signed up will be unable to use the navbar. Hovering over the icons will display a small message informing them that they must be logged in to access the respective section.
+- User stories covered: 9, 14, 15
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/secondary_navbar.png">
+<img src="docs/features/secondary_navbar_login_1.png">
+<img src="docs/features/secondary_navbar_login_2.png">
+<img src="docs/features/secondary_navbar_login_3.png">
+</details>
 
 ### Sign up form
+- New users can create an account to have full access of the site
+- User must provide a valid username between 1 and 10 characters long, along with a valid password and password confirmation which must be a minimum of 8 characters long.
+- Duplicate usernames are not allowed during the signup process; each username must be unique.
+- After successfully signing up, users are automatically redirected to the login page to log in with their newly created credentials.
+- User stories covered: 3
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/signup_form.png">
+</details>
 
 ### Login form
+- Returning users can login to their account
+- The user must have a registered account and must enter the correct credentials.
+- In case of incorrect credentials being inputted during the login process, a warning message is displayed to the user.
+- User stories covered: 4
+
+<details><summary>See featured screenshot</summary>
+<img src="docs/features/login_form.png">
+</details>
 
 ### Post create/update form
+- The post creation form includes fields for Title, Description, Country and Image upload
+- The description field is optional, giving users flexibility in providing additional details.
+- Allows the users to share their photos
+- An option is provided for users to specify the country where the photo was taken, enhancing search and filtering capabilities for other users.
+- The update form enables users to revisit and modify the details of a post they previously created. This flexibility is particularly useful in case of typos or if the wrong image was uploaded. All fields within the form are editable, providing users with the ability to make necessary adjustments.
+- User stories covered: 9, 18
+
+<details><summary>See featured screenshots</summary>
+<img src="docs/features/create_post_form.png">
+<img src="docs/features/update_post_form.png">
+</details>
 
 ### Posts page
 
