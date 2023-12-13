@@ -489,3 +489,8 @@ They are as followed:
 - Exclude User's Own Profile in Popular Users - Ensure that a user's own profile is excluded from the Popular Users section to optimize space and avoid redundancy.
 
 ##### Back to [top](#table-of-contents)
+
+## Validation
+
+### HTML
+The W3C Markup Validation Service was used to validate the HTML of the website. No errors were identified. 
