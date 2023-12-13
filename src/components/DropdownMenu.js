@@ -1,7 +1,10 @@
 import React from "react";
+
 import { Dropdown, Tooltip, OverlayTrigger } from "react-bootstrap";
-import styles from "../styles/DropdownMenu.module.css";
 import { useHistory } from "react-router";
+
+import styles from "../styles/DropdownMenu.module.css";
+
 
 const DropdownDots = React.forwardRef(({ onClick }, ref) => (
   <i
@@ -14,6 +17,11 @@ const DropdownDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+
+/*
+  Dropdown menu for post owners. They will have the options of editing and deleting posts.
+  Calls the handleEdit & handleDelete functions based on destructured props
+*/
 export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
@@ -21,7 +29,7 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
 
       <Dropdown.Menu
         className="text-center"
-        popperConfig={{ strategy: "fixed" }}
+        popperConfig={{ strategy: "fixed" }} // To ensure position of dropdownmenu is consistent accross browsers
       >
         <OverlayTrigger placement="top" overlay={<Tooltip>Edit post</Tooltip>}>
           <Dropdown.Item
@@ -50,6 +58,11 @@ export const DropdownMenu = ({ handleEdit, handleDelete }) => {
   );
 };
 
+/*
+  Dropdown menu on the profile page
+  displays icons for edit profile & change password
+  Makes a request to fetch profile data based on the profile id
+*/
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (

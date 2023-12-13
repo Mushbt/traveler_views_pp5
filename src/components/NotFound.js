@@ -1,10 +1,15 @@
 import React from 'react'
-import NotFound from '../assets/404_error.png'
+
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import appStyles from "../App.module.css";
 import { Link } from "react-router-dom";
 
+import appStyles from "../App.module.css";
+import NotFound from '../assets/404_error.png'
 
+/*
+  Displays a 404 page and a link to
+  return to main page
+*/
 const PageNotFound = () => {
     return (
         <Row>

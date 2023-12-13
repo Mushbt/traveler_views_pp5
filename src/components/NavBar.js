@@ -1,27 +1,36 @@
 import React from 'react';
-import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap';
-import logo from '../assets/tv_logo.png';
-import styles from '../styles/NavBar.module.css';
-import { NavLink } from 'react-router-dom';
-import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
-import Avatar from './Avatar';
+
 import axios from 'axios';
+import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
+import Avatar from './Avatar';
+import logo from '../assets/tv_logo.png';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import styles from '../styles/NavBar.module.css';
 import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  /*
+     Handles user logout
+     Removes saved current user
+  */
   const handleLogOut = async () => {
     try {
       await axios.post('dj-rest-auth/logout/');
       setCurrentUser(null);
       removeTokenTimestamp();
     } catch (err) {
-      // Handle error
     }
   };
 
+  /* 
+    Displays current username and avatar in the navbar
+    With a dropdown option to view user profile or logout
+  */
   const LoggedInNavBar = () => (
     <NavDropdown title={<Avatar src={currentUser?.profile_image} height={40} />} id="nav-dropdown">
       <NavDropdown.Item>
@@ -33,6 +42,10 @@ const NavBar = () => {
     </NavDropdown>
   );
 
+  /* 
+    Navbar visble to loggedout users
+    With options to sign up or log in
+  */
   const LoggedOutNavBar = () => (
     <>
       <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup">

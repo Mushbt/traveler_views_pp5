@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import appStyles from '../App.module.css';
-import styles from '../styles/SecondaryNavBar.module.css';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
 
+import { Container, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+import appStyles from '../App.module.css';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
+import styles from '../styles/SecondaryNavBar.module.css';
+
+
+/*
+  Small navbar with links to create a post, 
+  see liked posts and posts by other users the user is following.
+  Only logged in users can access these links.
+*/
 const SecondaryNavBar = () => {
   const currentUser = useCurrentUser();
 
