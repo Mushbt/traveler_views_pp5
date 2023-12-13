@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
+
 import { Row, Col, Container } from "react-bootstrap";
-import appStyles from "../../App.module.css";
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
-import Post from "./Post";
-import CommentCreateForm from "../comments/CommentCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Comment from "../comments/Comment"
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useParams } from "react-router";
+
+import Post from "./Post";
+import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
-import { fetchMoreData } from "../../utils/utils";
 import SecondaryNavBar from "../../components/SecondaryNavBar";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { fetchMoreData } from "../../utils/utils";
+import Comment from "../comments/Comment"
+import CommentCreateForm from "../comments/CommentCreateForm";
 import PopularProfiles from "../profiles/PopularProfiles";
 
 function PostPage() {
@@ -21,6 +23,10 @@ function PostPage() {
     const profile_image = currentUser?.profile_image;
     const [comments, setComments] = useState({ results: [] });
 
+    /*
+      Handles request for posts and their comments
+      Runs code every time the post id in the URL changes
+    */
     useEffect(() => {
         const handleMount = async () => {
             try {
@@ -30,9 +36,9 @@ function PostPage() {
                 ]);
                 setPost({ results: [post] });
                 setComments(comments);
-                console.log(comments);
+                // console.log(comments);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
 
@@ -64,9 +70,10 @@ function PostPage() {
                             "Comments"
                         ) : null}
                         {comments.results.length ? (
+                            // InfiniteScroll component handles loading comments as the User scrolls
                             <InfiniteScroll
-                            children={comments.results.map((comment) => (
-                                <Comment key={comment.id} {...comment} setPost={setPost} setComments={setComments} />
+                                children={comments.results.map((comment) => (
+                                    <Comment key={comment.id} {...comment} setPost={setPost} setComments={setComments} />
                                 ))}
                                 dataLength={comments.results.length}
                                 loader={<Asset spinner />}

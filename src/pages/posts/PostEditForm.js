@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { Alert, Button, Col, Container, Form, Image, Row, } from "react-bootstrap";
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
 import { useHistory, useParams } from "react-router-dom";
+
 import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import styles from "../../styles/PostCreateEditForm.module.css";
 
 function PostEditForm() {
     const [errors, setErrors] = useState({});
@@ -23,8 +25,13 @@ function PostEditForm() {
 
     const imageInput = useRef(null);
     const history = useHistory();
-    const { id } = useParams();
+    const { id } = useParams(); // Gets a parameter out of the URL.
 
+    /*
+      Handles API request using the post ID parameter
+      Gets the data about the posts the user wants to edit
+      Prevents editing other users' posts
+    */
     useEffect(() => {
         const handleMount = async () => {
             try {
@@ -34,12 +41,17 @@ function PostEditForm() {
                 is_owner
                     ? setPostData({ title, country, description, image })
                     : history.push("/");
-            } catch (err) { }
+            } catch (err) {
+                // console.log(err)
+            }
         };
 
         handleMount();
     }, [history, id]);
 
+    /* 
+     Handles changes to the create form input fields
+   */
     const handleChange = (e) => {
         setPostData({
             ...postData,
@@ -47,6 +59,9 @@ function PostEditForm() {
         });
     };
 
+    /* 
+     Handles change to the file (image) input field
+   */
     const handleChangeImage = (e) => {
         if (e.target.files.length) {
             URL.revokeObjectURL(image);
@@ -57,6 +72,10 @@ function PostEditForm() {
         }
     };
 
+    /* 
+     Handles the edit post form submission
+     Redirects the user to the posts page
+    */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -73,14 +92,14 @@ function PostEditForm() {
             await axiosReq.put(`/posts/${id}/`, formData);
             setSuccessMessage("Post updated successfully!");
             setShowSuccessMessage(true);
-            setErrors({}); // Clear errors if there were any
+            setErrors({});
             setTimeout(() => {
                 setSuccessMessage("");
                 setShowSuccessMessage(false);
                 history.push(`/posts/${id}`);
-            }, 5000);
+            }, 5000); // Timeout of 5 seconds before Alert disappears
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrorMessage("Failed to update post. Please try again.");
                 setShowErrorMessage(true);
@@ -88,7 +107,7 @@ function PostEditForm() {
                 setTimeout(() => {
                     setErrorMessage("");
                     setShowErrorMessage(false);
-                }, 5000);
+                }, 5000); // Timeout of 5 seconds before Alert disappears
             }
         }
     };

@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
+
 import { Alert, Button, Col, Container, Form, Image, Row } from "react-bootstrap";
-import Upload from "../../assets/upload_image.png"
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import Asset from "../../components/Asset";
 import { useHistory } from "react-router-dom";
+
 import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import Upload from "../../assets/upload_image.png"
+import Asset from "../../components/Asset";
+import styles from "../../styles/PostCreateEditForm.module.css";
 
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
@@ -22,10 +24,12 @@ function PostCreateForm() {
     })
 
     const { title, country, description, image } = postData;
-
     const imageInput = useRef(null);
     const history = useHistory();
 
+    /* 
+      Handles changes to the create form input fields
+    */
     const handleChange = (e) => {
         setPostData({
             ...postData,
@@ -33,7 +37,9 @@ function PostCreateForm() {
         });
     };
 
-    // Handle changes to the file input field
+    /* 
+    Handles change to the file (image) input field
+   */
     const handleChangeImage = (e) => {
         if (e.target.files.length) {
             URL.revokeObjectURL(image); // for changing the image
@@ -44,7 +50,10 @@ function PostCreateForm() {
         }
     };
 
-    // Handle form submission
+    /* 
+    Handles the create post form submission
+    Refreshes the user's access token before making a request to create a post
+  */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -63,9 +72,9 @@ function PostCreateForm() {
                 setSuccessMessage("");
                 setShowSuccessMessage(false);
                 history.push(`/posts/${data.id}`);
-            }, 5000);
+            }, 5000); // Timeout of 5 seconds before Alert disappears
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrorMessage("Failed to create post. Please try again.");
                 setShowErrorMessage(true);
@@ -73,12 +82,14 @@ function PostCreateForm() {
                 setTimeout(() => {
                     setErrorMessage("");
                     setShowErrorMessage(false);
-                }, 5000);
+                }, 5000); // Timeout of 5 seconds before Alert disappears
             }
         }
     };
 
-
+    /*
+     Hold input fields and buttons to create and cancel post
+   */
     const textFields = (
         <div className="text-center">
             <Form.Group>

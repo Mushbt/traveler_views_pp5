@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
+
 import { Badge, Col, Container, Form, Row } from "react-bootstrap";
-import appStyles from "../../App.module.css";
-import styles from "../../styles/PostsPage.module.css";
-import Post from "./Post";
-import Asset from "../../components/Asset";
-import NoResultsImage from "../../assets/no_results.png"
-import SecondaryNavBar from "../../components/SecondaryNavBar";
-import { useLocation } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useLocation } from "react-router-dom";
+
+import Post from "./Post";
+import { axiosReq } from "../../api/axiosDefaults";
+import appStyles from "../../App.module.css";
+import NoResultsImage from "../../assets/no_results.png"
+import Asset from "../../components/Asset";
+import SecondaryNavBar from "../../components/SecondaryNavBar";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/PostsPage.module.css";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [country, setCountry] = useState(null);
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
   const currentUser = useCurrentUser();
   const [query, setQuery] = useState("");
 
+  /*
+    Handles API request using the filters for each of the pages
+    to fetch relevant posts
+  */
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -32,10 +37,15 @@ function PostsPage({ message, filter = "" }) {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
+        // console.log(err)
       }
     };
 
     setHasLoaded(false);
+    /*
+      Delays making an API request and fetching posts in 1 second
+      instead of on each key stroke
+    */
     const timer = setTimeout(() => {
       fetchPosts();
     }, 1000);
@@ -89,11 +99,13 @@ function PostsPage({ message, filter = "" }) {
 
         <Col className="py-2 p-0 p-lg-2" lg={8}>
 
+          {/* Posts text search bar */}
           <i className={`fas fa-search ${styles.SearchIcon}`} />
           <Form
             className={styles.SearchBar}
             onSubmit={(e) => e.preventDefault()}
           >
+
             <Form.Control
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -106,6 +118,7 @@ function PostsPage({ message, filter = "" }) {
           {hasLoaded ? (
             <>
               {posts.results.length ? (
+                // InfiniteScroll component handles loading more posts as the User scrolls
                 <InfiniteScroll
                   children={posts.results.map((post) => (
                     <Post key={post.id} {...post} setPosts={setPosts} />
@@ -116,12 +129,14 @@ function PostsPage({ message, filter = "" }) {
                   next={() => fetchMoreData(posts, setPosts)}
                 />
               ) : (
+                // If no results found, show no results image with a relevant message
                 <Container className={appStyles.Content}>
                   <Asset src={NoResultsImage} width={20} height={20} message={message} />
                 </Container>
               )}
             </>
           ) : (
+            // Display a loading spinner if the posts haven't loaded yet
             <Container className={appStyles.Content}>
               <Asset spinner />
             </Container>

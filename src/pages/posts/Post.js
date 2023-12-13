@@ -1,12 +1,13 @@
-import React from "react";
-import styles from "../../styles/Post.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import React, { useState } from "react";
+
 import { Card, Media, OverlayTrigger, Tooltip, Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
+
 import { axiosRes } from "../../api/axiosDefaults";
+import Avatar from "../../components/Avatar";
 import { DropdownMenu } from "../../components/DropdownMenu";
-import { useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/Post.module.css";
 
 const Post = (props) => {
   const {
@@ -32,10 +33,18 @@ const Post = (props) => {
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
 
+  /*
+    Handles editing of the post
+  */
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
   };
 
+  /*
+    Handles deleting of the post
+    Shows success Alert to the user
+    Redirects the user to main page
+  */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
@@ -49,16 +58,21 @@ const Post = (props) => {
         if (postPage) {
           history.push("/");
         }
-      }, 5000);
+      }, 5000); // Timeout of 5 seconds before Alert disappears
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setShowErrorAlert(true);
       setTimeout(() => {
         setShowErrorAlert(false);
-      }, 5000);
+      }, 5000); // Timeout of 5 seconds before Alert disappears
     }
   };
 
+  /*
+    Handles likes of posts
+    Sends a request to the API for a post with a specific id
+    Increments the likes number by 1
+  */
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -71,10 +85,15 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
+  /*
+    Handles unliking of the post
+    Sends a request to the API for a post with a specific id
+    Decrements the likes number by 1
+  */
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -87,7 +106,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -101,13 +120,17 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_on}</span>
-            {is_owner && postPage && <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete} />}
+            {/* Display dropdown menu for owner of the post with options to edit or delete */}
+            {is_owner && postPage &&
+              <DropdownMenu handleEdit={handleEdit} handleDelete={handleDelete} />}
           </div>
         </Media>
       </Card.Body>
+
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
+      
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {description && <Card.Text>{description}</Card.Text>}
@@ -115,9 +138,10 @@ const Post = (props) => {
         <hr className={styles.Line} />
         <div className={styles.PostBar}>
           {is_owner ? (
+            // Users cannot like their own posts
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              overlay={<Tooltip>You can&lsquo;t like your own post!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
@@ -130,6 +154,7 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </span>
           ) : (
+            // Logged out users cannot like posts
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like posts!</Tooltip>}
@@ -145,11 +170,13 @@ const Post = (props) => {
           {comments_number}
         </div>
         {showSuccessAlert && (
+          // Success Alert for deleting Post
           <Alert variant="success" onClose={() => setShowSuccessAlert(false)} dismissible>
             Post deleted successfully!
           </Alert>
         )}
         {showErrorAlert && (
+          // Unsuccessful Alert for deleting Post
           <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
             Failed to delete post. Please try again.
           </Alert>
