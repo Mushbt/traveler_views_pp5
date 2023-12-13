@@ -227,7 +227,9 @@ The API for this Front-End application was built with the Django REST Framework.
 
 ## Features
 
-### Landing page/Posts page
+### Landing page
+- The landing page serves as the initial destination for anyone entering the site. Users who have not signed up or logged in experience a view-only interaction during their visit. 
+- Users have the ability to explore various user profiles and posts on the site; however, interaction with them is restricted for those who haven't signed up or logged in. Additionally, engagement with the Secondary Navbar is not accessible to this user group. (Further details provided in the Second Navigation Bar section below)
 
 ### Logo and Navigation Bar
 
