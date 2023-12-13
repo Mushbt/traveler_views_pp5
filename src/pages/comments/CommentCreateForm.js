@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { Button, Form, InputGroup, Alert } from "react-bootstrap";
-import styles from "../../styles/CommentCreateEditForm.module.css";
+import { Link } from "react-router-dom";
+
+import { axiosRes } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/CommentCreateEditForm.module.css";
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
@@ -12,10 +14,17 @@ function CommentCreateForm(props) {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
+  /* 
+   Handles changes to the create comment input field
+ */
   const handleChange = (e) => {
     setContent(e.target.value);
   };
 
+  /* 
+    Handles the submission of the comment
+    Increments the number of comments by 1
+  */
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -37,17 +46,15 @@ function CommentCreateForm(props) {
       }));
       setContent("");
       setShowSuccessMessage(true);
-
       setTimeout(() => {
         setShowSuccessMessage(false);
-      }, 5000);
+      }, 5000); // Timeout of 5 seconds before Alert disappears
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setShowErrorMessage(true);
-
       setTimeout(() => {
         setShowErrorMessage(false);
-      }, 5000);
+      }, 5000); // Timeout of 5 seconds before Alert disappears
     }
   };
 

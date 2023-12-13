@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+
 import { Button, Form, Alert } from "react-bootstrap";
+
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/CommentCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/CommentCreateEditForm.module.css";
+
 
 function CommentEditForm(props) {
     const { id, content, setShowEditForm, setComments } = props;
@@ -10,10 +13,18 @@ function CommentEditForm(props) {
     const [successMessage, setSuccessMessage] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
 
+    /* 
+     Handles changes to form input
+    */
     const handleChange = (e) => {
         setFormContent(e.target.value);
     };
 
+    /* 
+      Handles the edit comment form submission
+      Updates displayed comment with date set to 'now'
+      Displays Alert to the user 
+    */
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -37,14 +48,14 @@ function CommentEditForm(props) {
             setTimeout(() => {
                 setSuccessMessage(null);
                 setShowEditForm(false);
-            }, 5000);
+            }, 5000); // Timeout of 5 seconds before alert disappears
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             setErrorMessage("Failed to update comment. Please try again.");
             setSuccessMessage(null);
             setTimeout(() => {
                 setErrorMessage(null);
-            }, 5000);
+            }, 5000); // Timeout of 5 seconds before alert disappears
         }
     };
 

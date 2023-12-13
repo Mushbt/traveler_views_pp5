@@ -1,23 +1,39 @@
 import React, { useState } from "react";
+
 import { Media, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+import CommentEditForm from "./CommentEditForm";
+import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
-import styles from "../../styles/Comment.module.css";
 import { DropdownMenu } from "../../components/DropdownMenu";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { axiosRes } from "../../api/axiosDefaults";
-import CommentEditForm from "./CommentEditForm";
+import styles from "../../styles/Comment.module.css";
 
 const Comment = (props) => {
-  const { profile_id, profile_image, owner, updated_on, content, id, setPost, setComments } = props;
+  const {
+    profile_id,
+    profile_image,
+    owner,
+    updated_on,
+    content,
+    id,
+    setPost,
+    setComments,
+  } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
-
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  /*
+    Handles deleting of the comment based on its id
+    Removes the comment from all comments
+    Displays a feedback message to user
+    Decrements the number of current comments by 1
+  */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
@@ -36,18 +52,16 @@ const Comment = (props) => {
           ...prevComments,
           results: prevComments.results.filter((comment) => comment.id !== id),
         }));
-      }, 5000);
+      }, 5000); // Timeout of 5 seconds before Alert disappears
 
     } catch (err) {
       console.error(err);
       setShowErrorAlert(true);
       setTimeout(() => {
         setShowErrorAlert(false);
-      }, 5000);
-
+      }, 5000); // Timeout of 5 seconds before Alert disappears
     }
   };
-
 
   return (
     <div>
@@ -60,6 +74,8 @@ const Comment = (props) => {
             <span className={styles.OwnerName}>{owner}</span>
             <span className={styles.Date}> | {updated_on}</span>
             <span className={styles.DropdownDots}>
+              {/* Display the dropdown menu for owner of the comment
+                  with options to edit or delete it */}
               {is_owner && !showEditForm && (
                 <DropdownMenu handleEdit={() => setShowEditForm(true)} handleDelete={handleDelete} />
               )}
@@ -76,11 +92,13 @@ const Comment = (props) => {
             ) : (
               <p className="pr-2 pt-2">{content}</p>
             )}
+            {/* Display success Alert for comment deleted */}
             {showSuccessAlert && (
               <Alert variant="success" onClose={() => setShowSuccessAlert(false)} dismissible>
                 Comment deleted successfully!
               </Alert>
             )}
+            {/* Display unsuccessfull Alert for comment not deleted */}
             {showErrorAlert && (
               <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
                 Failed to delete comment. Please try again.
