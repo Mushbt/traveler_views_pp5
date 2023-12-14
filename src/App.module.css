@@ -1,3 +1,4 @@
+/* Colors pallet */
 :root {
     --text: #333333;
     --main: #008080;
@@ -29,6 +30,7 @@
     box-shadow: 1px 1px 5px var(--text);
 }
 
+/* Style links */
 a {
     color: var(--text) !important;
 }
@@ -38,6 +40,8 @@ a:hover i {
     transition: color ease-in-out 0.3s;
     transform: rotate(-10deg) scale(1.1);
   }
+
+  /* Style icons */
 
 i {
     color: var(--text);
@@ -65,6 +69,7 @@ i:hover {
     border-color: var(--text);
 }
 
+/* Form input fields */
 .Input {
     background-color: var(--main);
     border: 1px solid var(--details);
