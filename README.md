@@ -136,12 +136,44 @@ When selecting the color scheme for my latest project, I aimed for something dis
 Google Fonts was implemented on the site. I used Source Code Pro as the primary font and sans-serif as the fallback throughout the entire site. Source Code Pro, renowned for its popularity among coders, offers visual comfort and a broader character width tailored for optimal screen reading.
 
 ### Wireframes
+Wireframes were designed before I started with the project. They may differ due to changes made during development.
+- I made wireframes for the main features of the site which include:
+ - Main page (Landing page) Logged in and Logged out
+ - Post page
+ - Signup Form
+ - Login Form
 
-<Image here>
+#### Desktop
 
-<Image here>
+<details><summary>Desktop</summary>
+<img src="docs/wireframes/wireframe_posts_desktop.png">
+<img src="docs/wireframes/wireframe_posts_login_desktop.png">
+<img src="docs/wireframes/wireframe_profile_desktop.png">
+<img src="docs/wireframes/wireframe_signup_desktop.png">
+<img src="docs/wireframes/wireframe_login_desktop.png">
+</details>
 
-<Image here>
+
+#### Tablet
+
+<details><summary>Tablet</summary>
+<img src="docs/wireframes/wireframe_posts_ipad.png">
+<img src="docs/wireframes/wireframes_posts_login_ipad.png">
+<img src="docs/wireframes/wireframe_profile_ipad.png">
+<img src="docs/wireframes/wireframe_signup_ipad.png">
+<img src="docs/wireframes/wireframe_login_ipad.png">
+</details>
+
+
+#### Mobile
+
+<details><summary>Mobile</summary>
+<img src="docs/wireframes/wireframe_posts_mobile.png">
+<img src="docs/wireframes/wireframe_post_mobile.png">
+<img src="docs/wireframes/wireframe_signup_mobile.png">
+<img src="docs/wireframes/wireframe_login_mobile.png">
+</details>
+
 
 ##### Back to [top](#table-of-contents)
 
