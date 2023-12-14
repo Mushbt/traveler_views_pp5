@@ -1,10 +1,10 @@
-# TravelerViews <Add image here>
+<img src="docs/readme/traveler_views_logo.png">
 
 **Developer: Mustafa Habet**
 
 [Deployed link](https://traveler-views-pp5-aaa16a6f3832.herokuapp.com/)
 
-[Am I responsive image here]
+![Mockup image](docs/readme/am_i_responsive.png)
 
 ## Table of Contents
   - [About](#about)
@@ -129,7 +129,7 @@ The essential functionalities include:
 
 When selecting the color scheme for my latest project, I aimed for something distinctive. In my previous four projects, I opted for a straightforward design with muted colors. However, this time, I chose to embrace adventure! Following online research, I discovered that adventurous color palettes complement travel blog sites, making the decision a clear choice. After a brief Google search for 'Adventurous color combinations,' I settled on 'Teal' and 'Mustard' with subtle black accents. This choice imparted a bold personality to my site, of which I am genuinely proud.
 
-<Add color pallete here>
+<img src="docs/readme/color_pallete.png">
 
 ### Fonts
 
