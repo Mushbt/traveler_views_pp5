@@ -29,6 +29,7 @@
     - [Browser compatibility](#browser-compatibility)
   - [Bugs](#bugs)
   - [Config](#config)
+  - [Deplpyment](#deployment)
   - [Credits](#credits)
 
 
@@ -181,7 +182,6 @@ Google Fonts was implemented on the site. I used Source Code Pro as the primary 
   - [WC3 Validator](https://validator.w3.org/) Was used to validate the HTML
   - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) Was used to validate the CSS
   - [ESLint](https://eslint.org/) used to validate JSX code
-  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) Was Used to validate performance, accessibility, best practice and SEO of the site
 
 ##### Back to [top](#table-of-contents)
 
@@ -633,3 +633,538 @@ The JSX code was validated using the ESLint utility. No Errors found.
 <details><summary>Eslint validation for all pages</summary> 
 <img src="docs/validation/pages_eslint.png"> 
 </details> 
+
+##### Back to [top](#table-of-contents)
+
+## Testing
+ 
+### Manual testing of user stories
+
+1. As a user, I can view a navbar from every page, so that I can easily return to main page and access my profile page.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Load any page of the site| Navbar with different links is displayed on top of each page | Works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_1a.png">
+<img src="docs/user_stories/user_story_1b.png">
+</details>
+
+
+2. As a user, I can navigate through pages quickly, so that I can view content seamlessly without page refresh.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Load any page of the site | Secondary NavBar is visible all pages with exception of handling authentication, creating and editing a post. | Works as expected |
+Load any page of the site| On the pages where Secondary Navbar is not visible, main NabBar is visible | Works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_2a.png">
+<img src="docs/user_stories/user_story_2b.png">
+</details>
+
+
+3. As a user, I can create a new account, so that I can access all the features for signed up users.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Load the Sign up page by clicking on the Signup Icon in the NavBar. Fill out the Sign up form | User is redirected to the Login form. When credentials are input correctly, users will be redirected to the main page | Works as expected.
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_3a.png">
+<img src="docs/user_stories/user_story_3b.png">
+<img src="docs/user_stories/user_story_3c.png">
+<img src="docs/user_stories/user_story_3d.png">
+</details>
+
+
+4. As a user, I can sign in to the app, so that I can access functionality for logged in users.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Load the Log in page by clicking on the Login Icon in the NavBar. Fill out the Login form | User is redirected to the main page where all functionality is accessible | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_4a.png">
+<img src="docs/user_stories/user_story_4b.png">
+<img src="docs/user_stories/user_story_4c.png">
+</details>
+
+
+5. As a user, I can tell if I am logged in or not, so that I can log in if I need to.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Look at the top right corner of the NavBar | User should see their avatar | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_5.png">
+</details>
+
+
+6. As a user, I can maintain my logged-in status until I choose to log out, so that my user experience is not compromised.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Log in to the site and do not log out within the next 24 hours | Users stay logged in for 24 hours unless choosing to log out themselves | Works as expected
+
+7. As a logged out user, I can see sign in and sign up options, so that I can sign in/sign up.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Look at the top right corner of the NavBar. If user is logged out they should see Signup and Login Icons | Signup and Login Icons are visible | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_7.png">
+</details>
+
+
+8. As a user, I can view user's avatars, so that I can easily identify users of the application.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to the main page or a specific post page | User avatars are displayed next to each username in Popular profiles, by each post and user comment | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_8a.png">
+<img src="docs/user_stories/user_story_8b.png">
+</details>
+
+
+9. As a logged in user I can create posts so that I can share my images with the world!
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the 'Add Post' Icon on the secondary NavBar and the user will be redirected to the Create post page. User must fill in the fields on for the form (Description is optional) and add an image. Once done, user must click on the 'create' button | User will be redirected to  the Post page where their post will be visible | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_9a.png">
+<img src="docs/user_stories/user_story_9b.png">
+<img src="docs/user_stories/user_story_9c.png">
+</details>
+
+
+10. As a user, I can view the details of a single post, so that I can learn more about it.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page, click on any post image | Redirects user to the specific post they clicked on | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_10a.png">
+<img src="docs/user_stories/user_story_10b.png">
+</details>
+
+
+11. As a logged in user, I can like a post, so that I can show my support for the posts that interest me.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page or within a specific profile or post page, user must click on the like icon under the post | Post is liked and the like icon is marked black. | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_11a.png">
+<img src="docs/user_stories/user_story_11b.png">
+</details>
+
+
+12. As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page, users can scroll down to see all the posts. On the top right corner of every post, there is a date and time for when the post was created | Posts are in order of latest created | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_12.png">
+</details>
+
+
+13. As a user, I can search for posts with a country tag, so that I can find the posts for a specific country I am most interested in.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page, click on the popular country badge of posts you'd like to view or search for a country in the search bar | All posts for that country will render | Works as expected 
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_13a.png">
+<img src="docs/user_stories/user_story_13b.png">
+</details>
+
+
+14. As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page click on the 'Liked posts' icon | Liked posts will load | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_14a.png">
+<img src="docs/user_stories/user_story_14b.png">
+</details>
+
+
+15. As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page click on the 'Feed' icon | All posts for followed users will load | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_15a.png">
+<img src="docs/user_stories/user_story_15b.png">
+</details>
+
+
+16. As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on next page.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to the main posts page and scroll to the bottom of the page | Loads new content and moves the scroll bar. Displays a loading icon before the posts have been loaded | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_16a.png">
+<img src="docs/user_stories/user_story_16b.png">
+</details>
+
+
+17. As a user I can view the posts page so that I can read the comments about the post.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the post image | Redirects to a chosen post page and displays post details with comments below | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_17a.png">
+<img src="docs/user_stories/user_story_17b.png">
+</details>
+
+
+18. As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the post you have created and within the post page, click on the dropdown menu and then click the edit post icon. This will redirect you to the edit post form. Once happy with the changes you made, press the 'Save' button. | Redirected back to the post page | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_18a.png">
+<img src="docs/user_stories/user_story_18b.png">
+<img src="docs/user_stories/user_story_18c.png">
+<img src="docs/user_stories/user_story_18d.png">
+</details>
+
+
+19. As a logged in user I can add comments to a post so that I can share my thoughts about the post.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the posts page, click on any image you would like to comment on. You will be redirected to the image post. Under the image, write a comment in the comment input field and click the 'Add' button. | Adds a comment to the post and increments the number of comments by 1 | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_19a.png">
+<img src="docs/user_stories/user_story_19b.png">
+</details>
+
+
+20. As a user I can see how long ago a comment was made so that I know how old a comment is.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on a post image to navigate to that specific post page | All comments have the creation time displayed above them | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_20.png">
+</details>
+
+
+21. As a user I can read comments on posts so that I can read what other users think about the posts.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on a post image to navigate to that specific post page | Redirects to a chosen post page and displays all comments below | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_21.png">
+</details>
+
+
+22. As an owner of a comment I can delete my comment so that I can control removal of my comment from the application.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+In the post page, click on the dropdown icon on the directly above your comment and click the Bin icon | Removes the comment from the post and decrements the number of comments by 1 | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_22a.png">
+<img src="docs/user_stories/user_story_22b.png">
+</details>
+
+
+23. As an owner of a comment I can edit my comment so that I can fix or update my existing comment.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+In the post page, click on the dropdown icon on the directly above your comment and click the Pen icon. Edit comment input field appears. Update the comment and then press Update. Post page will render with your updated comment | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_23a.png">
+<img src="docs/user_stories/user_story_23b.png">
+<img src="docs/user_stories/user_story_23c.png">
+</details>
+
+
+24. As a user I can view other users profiles so that I can see their posts and learn more about them.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the user avatar or name | Redirects to the chosen user profile page and displays user avatar, user profile description if they have added it and user posts | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_24a.png">
+<img src="docs/user_stories/user_story_24b.png">
+</details>
+
+
+25. As a user I can see a list of the most followed profiles so that I can see which profiles are popular.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+No specific steps | Popular Profiles section on the left side of the site with the 3 most popular profiles | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_25.png">
+</details>
+
+
+26. As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the user avatar or name | Redirects to the chosen user profile page and displays number of followers, number of users followed and number of posts | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_26a.png">
+<img src="docs/user_stories/user_story_26b.png">
+</details>
+
+
+27. As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the 'follow' button within the user profile page or by the username in 'Popular Profiles' section | Follows the user and increases the number of followers on followed user's profile. 'Follow' buttons render to 'Unfollow' buttons| Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_27a.png">
+<img src="docs/user_stories/user_story_27b.png">
+<img src="docs/user_stories/user_story_27c.png">
+</details>
+
+
+28. As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on the user avatar or name | Redirects to the chosen user profile page and displays all their posts within the profile page | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_28a.png">
+<img src="docs/user_stories/user_story_28b.png">
+</details>
+
+
+29. As a logged in user I can edit my profile so that I can change my profile picture and bio.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to the user profile page and click on the dropdown menu and click the 'Edit' Icon. This will redirect you to your profile page. There you can update your information and change your image. Once happy with the changes, press the 'Save' button | You will be redirected back to your profile page where you can see all the changes you made | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_29a.png">
+<img src="docs/user_stories/user_story_29b.png">
+<img src="docs/user_stories/user_story_29c.png">
+</details>
+
+
+30. As a logged in user I can update my password so that I can keep my profile secure.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to the user profile page and click on the dropdown menu and click the Key Icon. You will be redirected to the form where you can change your password. Once you are happy with the changes, press the 'Save' Button. You will be redirected back to your profile page. | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_30a.png">
+<img src="docs/user_stories/user_story_30b.png">
+</details>
+
+
+31. As the site owner, I want full responsiveness for my site, so that users can seamlessly utilize it across various devices.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Change device screen size using Chrome Dev Tools | Site should function the same across various screen sizes | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_31a.png">
+<img src="docs/user_stories/user_story_31b.png">
+<img src="docs/user_stories/user_story_31c.png">
+</details>
+
+
+
+32. As a user, I can see feedback messages, so that I know whether there have been updates to my comments, profile, or posts.
+(I added additional feedback messages so users are able to see when they have Signed up and changed a password)
+## Please see [feedback](#feedback-messages)
+
+33. As a user, I can delete my account if I decide to no longer use the app. (Was not implemented due to time restraints. Will be done in next release)
+
+34. As a user, I can change the password to my account, so that I can keep my profile secure. (Duplicate - See user story 30.)
+
+35. As a user, I can search for content with specific keywords, so that I can easily find content I am looking for.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+On the main page, you can type a specific username, title of a post or a country | Posts related to the keyword types will render | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_35.png">
+</details>
+
+
+36. As a site owner, I want users to be directed to a 404 error page incase they enter a wrong URL, so that users can use a visible button to go back rather than use the browser.
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Type the wrong URL in WWW address(https://traveler-views-pp5-aaa16a6f3832.herokuapp.com/URLS) | Redirects users to a 404 page | Works as expected
+
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/user_story_36.png">
+</details>
+
+### Performing tests on various devices
+
+The website was tested using Google Chrome Developer Tools to simulate viewports of different devices
+
+The website was also tested by friends, family and the slack community on different devices and browsers.
+Some of the devices used are as followed:
+- Samsung S21 Plus (Chrome and Samsung Internet)
+- Samsung S23 Ultra (Chrome and Samsung Internet)
+- Iphone XS Max (Chrome)
+- Iphone 15 Pro Max (Chrome)
+- Huawei P20 Prop (Chrome)
+- HP EliteBook (Chrome and Edge)
+
+IOS devices had an issue with being able to use the site. This was due to a settings issue. To fix this, you have to enable "Allow cross-website tracking"
+
+##### Back to [top](#table-of-contents)
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ------- | ------- |
+When hovering over the comment icon on a post the screen reloads and goes blank | Refactored Overlay Triggers for the Comment Icon
+Posts were displaying a country code rather than then the country name on the posts | Refactored the backend and frontend country selection
+Comments were not displaying and everytime I created a comment on the same post, it seemed like it was the first comment | I added a missing setComment function
+Follow buttons on the profile page and Popular Profiles were not in sync. When I press Follow on the Profile, The follow button on the Popular profiles would do the opposite | My follow buttons on Profile.js were in the wrong order seeing as it was a "Toggle switch". After refactoring the buttons, it worked.
+When trying to edit a profile or change password, I was being redirected to the home page instead of the respective forms | I fixed 2 typos in my backend. One was a typo in my USER_DETAILS_SERIALIZER in settings.py and the other was in my profile.image.url in drf serializers.py.
+Alert was not displaying when trying to delete a comment | Refactored the Alert so it is above setComments function
+Alert was not displaying when trying to delete a post | Refactored the ALert so it triggers after the history.goback function
+
+The above bugs were just a few. Other bug fixes are within my Commit history.
+
+##### Back to [top](#table-of-contents)
+
+## Config
+
+### Forking the GitHub Repository
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner
+3. You will then have a copy of the repository in your own GitHub account.
+
+### Making a Local Clone
+1. Go to the GitHub repository 
+2. Locate the Code button above the list of files and click it
+3. Highlight the "HTTPS" button to clone with HTTPS and copy the link
+4. Open commandline interface on your computer
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard 
+  ```
+  $ git clone https://github.com/Mushbt/traveler_views_pp5
+   ```
+7. Press Enter to create your local clone
+
+## Deployment
+
+The Site was deployed to Heroku. The steps to deploy are as followed:
+1. Launch the gitpod workspace
+2. Install ReactJs
+  ```
+  npx create-react-app . --use-npm
+  npm start
+  ```
+3. Install the following packages using the command ``` npm install ```
+  ```
+  react-bootstrap@1.6.3 bootstrap@4.6.0
+  react-router-dom@5.3.0
+  axios
+  react-infinite-scroll-component
+  msw --save-dev
+  jwt-decode
+  ```
+4. Git add, commit, and push changes to gitpod.
+5. Create the project app on Heroku, and link the GitHub repository by navigating to the 'Deploy' tab.
+
+### Connecting to the API
+
+1. Navigate to the Heroku app of the project DRF-API and under the settings tab, add the following configvars:
+- Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com
+- Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io
+2. Check that the trailing slash ``` / ``` at the end of both links has been removed, and save the configvar pairs.
+3. Install the Axios package, & create supporting ``` axiosDefaults.js ``` as shown in [Moments walkthrough](https://github.com/Code-Institute-Solutions/moments/blob/cf955d2f2e6f70f61c92d1f9de85558d8e49f3a8/src/api/axiosDefaults.js)
+
+### Deploy to Heroku
+
+1. In the ``` scripts ``` section of ``` package.json ``` in gitpod, add the following command:
+```
+  "heroku-prebuild": "npm install -g serve",
+```
+2. Add Procfile to project root and populate with the following
+```
+  web: serve -s build
+```
+3. Git add, commit, and push changes to gitpod.
+4. Deploy the project via the Deploy button on Heroku
+
+##### Back to [top](#table-of-contents)
+
+## Credits
+
+### Images
+- Default Avatar was taken from [CI Moments walkthrough](https://github.com/Code-Institute-Solutions/moments/)
+- Default Post image was taken from [CI Moments walkthrough](https://github.com/Code-Institute-Solutions/moments/)
+- No results Image was taken from [HiClipart](www.hiclipart.com)
+- 404 Image was taken from [Agente Studio](https://agentestudio.com/blog/10-best-404-error-page-designs)
+- Site logo was created with [Fiverr Logo Maker](https://www.fiverr.com/logo-maker/)
+- Images uploaded to the site as posts were found on [Google Images](https://www.google.com)
+(No copyright was intended)
+
+### Code
+This project was inspired by the [CI 'Moments'](https://github.com/Code-Institute-Solutions/moments) which was a final walkthrough project.
+I have added my own styling and extra functionalities. I look forward to explanding on this with my various ideas
+
+### Acknowledgements
+
+- I would like to thank my Mentor Mo Shami for his amazing and professional Guidance through out this project.
+- I would like to thank the Slack Community for always answering any questions and helping me get through many issues faced while developing this project.
+- A special thank you to the Tutors at Code Institute especially Joanne, Gemma, John, Martin, Oisin, Holly and Jason! Without them this project would have been impossible!
+- Also one last thank you to the Assessment team who have marked my 4 previous projects and ofcourse the final one!
+
+## Final Thoughts
+This nearly 2 year long journey with Code Institute has been nothing short of amazing! I started off the course with no previous knowledge with exception of the 5 day challenge which helped me decide that this was the path for me. It has been a really tough 2 years trying to balance work, family with 2 youngs children and studies all at once but looking back at everything now, I can say it was worth it! 
+
+Mustafa Habet 
+
+
+
+
+
