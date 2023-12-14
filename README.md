@@ -493,4 +493,143 @@ They are as followed:
 ## Validation
 
 ### HTML
-The W3C Markup Validation Service was used to validate the HTML of the website. No errors were identified. 
+The W3C Markup Validation Service was used to validate the HTML of the website. No errors were identified.
+
+<details><summary>Posts page</summary> 
+<img src="docs/validation/posts_page_validation_html.png"> 
+</details> 
+
+<details><summary>Signup page</summary> 
+<img src="docs/validation/signup_validation_html.png"> 
+</details> 
+
+<details><summary>Login page</summary> 
+<img src="docs/validation/login_validation_html.png"> 
+</details> 
+
+<details><summary>Post page</summary> 
+<img src="docs/validation/post_page_validation_html.png"> 
+</details> 
+
+<details><summary>Post create page</summary> 
+<img src="docs/validation/post_create_validation_html.png"> 
+</details> 
+
+<details><summary>Post edit page</summary> 
+<img src="docs/validation/post_edit_validation_html.png"> 
+</details> 
+
+<details><summary>Profile page</summary> 
+<img src="docs/validation/profile_validation_html.png"> 
+</details> 
+
+<details><summary>Profile edit page</summary> 
+<img src="docs/validation/profile_edit_validation_html.png"> 
+</details> 
+
+<details><summary>Password edit page</summary> 
+<img src="docs/validation/password_change_validation_html.png"> 
+</details> 
+
+<details><summary>Liked page</summary> 
+<img src="docs/validation/liked_validation_html.png"> 
+</details> 
+
+<details><summary>Feed page</summary> 
+<img src="docs/validation/feed_validation_html.png"> 
+</details> 
+
+<details><summary>404 page</summary> 
+<img src="docs/validation/404_validation_html.png"> 
+</details> 
+
+### CSS
+
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. All CSS modules pass the validation with no errors.
+
+<details><summary>App.module.css</summary> 
+<img src="docs/validation/app_css.png"> 
+</details> 
+
+<details><summary>Asset.module.css</summary> 
+<img src="docs/validation/asset_css.png"> 
+</details> 
+
+<details><summary>Avatar.module.css</summary> 
+<img src="docs/validation/avatar_css.png"> 
+</details> 
+
+<details><summary>Comment.module.css</summary> 
+<img src="docs/validation/comment_css.png"> 
+</details> 
+
+<details><summary>CommentCreateEditForm.module.css</summary> 
+<img src="docs/validation/comment_create_css.png"> 
+</details> 
+
+<details><summary>DropdownMenu.module.css</summary> 
+<img src="docs/validation/dropdown_css.png"> 
+</details> 
+
+<details><summary>LogInSignUpForm.module.css</summary> 
+<img src="docs/validation/login_signup_css.png"> 
+</details> 
+
+<details><summary>NavBar.module.css</summary> 
+<img src="docs/validation/navbar_css.png"> 
+</details> 
+
+<details><summary>Post.module.css</summary> 
+<img src="docs/validation/post_css.png"> 
+</details> 
+
+<details><summary>PostCreateEditForm.module.css</summary> 
+<img src="docs/validation/post_create_css.png"> 
+</details> 
+
+<details><summary>PostsPage.module.css</summary> 
+<img src="docs/validation/posts_page_css.png"> 
+</details> 
+
+<details><summary>Profile.module.css</summary> 
+<img src="docs/validation/profile_css.png"> 
+</details> 
+
+<details><summary>ProfilePage.module.css</summary> 
+<img src="docs/validation/profile_page_css.png"> 
+</details> 
+
+<details><summary>SecondaryNavBar.module.css</summary> 
+<img src="docs/validation/secondary_nav_css.png"> 
+</details> 
+
+### JSX
+The JSX code was validated using the ESLint utility. No Errors found.
+
+<details><summary>Eslint validation for api</summary> 
+<img src="docs/validation/axios_eslint.png"> 
+</details> 
+
+<details><summary>Eslint validation for components</summary> 
+<img src="docs/validation/components_eslint.png"> 
+</details> 
+
+<details><summary>Eslint validation for contexts</summary> 
+<img src="docs/validation/contexts_eslint.png"> 
+</details> 
+
+<details><summary>Eslint validation for hooks</summary> 
+<img src="docs/validation/hooks_eslint.png"> 
+</details> 
+
+<details><summary>Eslint validation for utils</summary> 
+<img src="docs/validation/utils_eslint.png"> 
+</details> 
+
+<details><summary>Eslint validation for auth</summary> 
+<img src="docs/validation/auth_eslint.png"> 
+</details> 
+
+<details><summary>Eslint validation for all pages</summary> 
+<img src="docs/validation/pages_eslint.png"> 
+</details> 
