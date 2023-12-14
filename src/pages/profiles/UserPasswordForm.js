@@ -57,7 +57,7 @@ const UserPasswordForm = () => {
                 history.goBack();
             }, 5000);
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             setErrors(err.response?.data);
             setShowErrorAlert(true);
         }

@@ -55,7 +55,7 @@ const Comment = (props) => {
       }, 5000); // Timeout of 5 seconds before Alert disappears
 
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       setShowErrorAlert(true);
       setTimeout(() => {
         setShowErrorAlert(false);
