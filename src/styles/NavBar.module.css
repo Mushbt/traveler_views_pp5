@@ -45,7 +45,7 @@
 }
 
 /* Media Query for Smaller Screens */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .NavBar {
         min-height: 50px;
     }
